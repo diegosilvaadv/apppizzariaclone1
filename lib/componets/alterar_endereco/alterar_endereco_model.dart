@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'alterar_endereco_widget.dart' show AlterarEnderecoWidget;
 import 'dart:async';
+import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -19,6 +20,9 @@ class AlterarEnderecoModel extends FlutterFlowModel<AlterarEnderecoWidget> {
 
   final formKey1 = GlobalKey<FormState>();
   final formKey2 = GlobalKey<FormState>();
+  // State field(s) for Expandable widget.
+  late ExpandableController expandableController;
+
   Completer<List<UsersEnderecosRow>>? requestCompleter;
   // State field(s) for cep widget.
   FocusNode? cepFocusNode;
@@ -74,6 +78,7 @@ class AlterarEnderecoModel extends FlutterFlowModel<AlterarEnderecoWidget> {
   }
 
   void dispose() {
+    expandableController.dispose();
     cepFocusNode?.dispose();
     cepController?.dispose();
 
