@@ -166,6 +166,12 @@ class FFAppState extends ChangeNotifier {
   void updateEnderecoRefStruct(Function(EnderecosStruct) updateFn) {
     updateFn(_enderecoRef);
   }
+
+  String _statusPAG = 'Nenhum';
+  String get statusPAG => _statusPAG;
+  set statusPAG(String _value) {
+    _statusPAG = _value;
+  }
 }
 
 LatLng? _latLngFromString(String? val) {
