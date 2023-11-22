@@ -12,6 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'pagamento_model.dart';
 export 'pagamento_model.dart';
@@ -281,10 +282,28 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                               ],
                             ),
                           ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                10.0, 10.0, 10.0, 0.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  child: Image.network(
+                                    '${FFAppState().pagPixRef.qrcode}',
+                                    width: 300.0,
+                                    height: 200.0,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
                           if (FFAppState().pagPixRef.status != 'approved')
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  10.0, 20.0, 10.0, 20.0),
+                                  10.0, 20.0, 10.0, 10.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -302,12 +321,60 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Text(
-                                            'Pagamento Pendente...',
+                                            'Pagamento Pendente',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Readex Pro',
                                                   fontSize: 20.0,
+                                                ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  Align(
+                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                    child: Lottie.asset(
+                                      'assets/lottie_animations/Animation_-_1700667862033.json',
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.1,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.1,
+                                      fit: BoxFit.contain,
+                                      animate: true,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          if (FFAppState().pagPixRef.status == 'approved')
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10.0, 20.0, 10.0, 20.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      color: Color(0xFF10DA26),
+                                      borderRadius: BorderRadius.circular(6.0),
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          20.0, 10.0, 20.0, 10.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Text(
+                                            'Pagamento Rezlizado com Sucesso!',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Readex Pro',
+                                                  fontSize: 18.0,
                                                 ),
                                           ),
                                         ],
@@ -628,7 +695,7 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                           );
                                         });
                                         await Future.delayed(
-                                            const Duration(milliseconds: 5000));
+                                            const Duration(milliseconds: 3000));
                                         if (FFAppState().pagPixRef.status ==
                                             'approved') {
                                           if (FFAppState().pedidosCar.length >=

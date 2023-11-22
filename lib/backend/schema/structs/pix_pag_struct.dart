@@ -10,9 +10,11 @@ class PixPagStruct extends BaseStruct {
     String? status,
     String? chavepix,
     int? idPedido,
+    String? qrcode,
   })  : _status = status,
         _chavepix = chavepix,
-        _idPedido = idPedido;
+        _idPedido = idPedido,
+        _qrcode = qrcode;
 
   // "status" field.
   String? _status;
@@ -33,10 +35,17 @@ class PixPagStruct extends BaseStruct {
   void incrementIdPedido(int amount) => _idPedido = idPedido + amount;
   bool hasIdPedido() => _idPedido != null;
 
+  // "QRCODE" field.
+  String? _qrcode;
+  String get qrcode => _qrcode ?? '';
+  set qrcode(String? val) => _qrcode = val;
+  bool hasQrcode() => _qrcode != null;
+
   static PixPagStruct fromMap(Map<String, dynamic> data) => PixPagStruct(
         status: data['status'] as String?,
         chavepix: data['chavepix'] as String?,
         idPedido: castToType<int>(data['id_pedido']),
+        qrcode: data['QRCODE'] as String?,
       );
 
   static PixPagStruct? maybeFromMap(dynamic data) =>
@@ -46,6 +55,7 @@ class PixPagStruct extends BaseStruct {
         'status': _status,
         'chavepix': _chavepix,
         'id_pedido': _idPedido,
+        'QRCODE': _qrcode,
       }.withoutNulls;
 
   @override
@@ -61,6 +71,10 @@ class PixPagStruct extends BaseStruct {
         'id_pedido': serializeParam(
           _idPedido,
           ParamType.int,
+        ),
+        'QRCODE': serializeParam(
+          _qrcode,
+          ParamType.String,
         ),
       }.withoutNulls;
 
@@ -81,6 +95,11 @@ class PixPagStruct extends BaseStruct {
           ParamType.int,
           false,
         ),
+        qrcode: deserializeParam(
+          data['QRCODE'],
+          ParamType.String,
+          false,
+        ),
       );
 
   @override
@@ -91,20 +110,24 @@ class PixPagStruct extends BaseStruct {
     return other is PixPagStruct &&
         status == other.status &&
         chavepix == other.chavepix &&
-        idPedido == other.idPedido;
+        idPedido == other.idPedido &&
+        qrcode == other.qrcode;
   }
 
   @override
-  int get hashCode => const ListEquality().hash([status, chavepix, idPedido]);
+  int get hashCode =>
+      const ListEquality().hash([status, chavepix, idPedido, qrcode]);
 }
 
 PixPagStruct createPixPagStruct({
   String? status,
   String? chavepix,
   int? idPedido,
+  String? qrcode,
 }) =>
     PixPagStruct(
       status: status,
       chavepix: chavepix,
       idPedido: idPedido,
+      qrcode: qrcode,
     );

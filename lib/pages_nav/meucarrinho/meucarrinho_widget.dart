@@ -1051,6 +1051,10 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                             (_model.resultadoPagPix?.jsonBody ??
                                                 ''),
                                           ),
+                                          qrcode: PixMercadoPagoCall.qrcode(
+                                            (_model.resultadoPagPix?.jsonBody ??
+                                                ''),
+                                          ).toString(),
                                         );
                                       });
                                       await Future.delayed(
