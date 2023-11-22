@@ -130,7 +130,7 @@ class StatusPixCall {
     );
   }
 
-  static dynamic statusPag(dynamic response) => getJsonField(
+  static dynamic status(dynamic response) => getJsonField(
         response,
         r'''$.status''',
       );

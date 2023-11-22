@@ -1,5 +1,6 @@
 import '/auth/supabase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
+import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
 import '/componets/pedidos_finalizados/pedidos_finalizados_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -285,10 +286,19 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                             ],
                           ),
                         ),
-                        if ((widget.status != null && widget.status != ''
-                                    ? PagPIXStruct.fromMap(widget.status)
+                        if ((StatusPixCall.status(
+                                              columnStatusPixResponse.jsonBody,
+                                            ).toString() !=
+                                            null &&
+                                        StatusPixCall.status(
+                                              columnStatusPixResponse.jsonBody,
+                                            ).toString() !=
+                                            ''
+                                    ? PagPIXStruct.fromMap(StatusPixCall.status(
+                                        columnStatusPixResponse.jsonBody,
+                                      ).toString())
                                     : null)
-                                ?.status !=
+                                ?.status ==
                             'approved')
                           Align(
                             alignment: AlignmentDirectional(0.00, 0.00),
@@ -322,43 +332,38 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                               ),
                             ),
                           ),
-                        if ((widget.status != null && widget.status != ''
-                                    ? PagPIXStruct.fromMap(widget.status)
-                                    : null)
-                                ?.status ==
-                            'approved')
-                          Align(
-                            alignment: AlignmentDirectional(0.00, 0.00),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  20.0, 20.0, 20.0, 20.0),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  color: Color(0xFF10DA26),
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 10.0, 10.0, 10.0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        'Pagamento Realizado com Sucesso!',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Readex Pro',
-                                              fontSize: 18.0,
-                                            ),
-                                      ),
-                                    ],
-                                  ),
+                        Align(
+                          alignment: AlignmentDirectional(0.00, 0.00),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                20.0, 20.0, 20.0, 20.0),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: Color(0xFF10DA26),
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10.0, 10.0, 10.0, 10.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      'Pagamento Realizado com Sucesso!',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Readex Pro',
+                                            fontSize: 18.0,
+                                          ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),
                           ),
+                        ),
                       ],
                     ),
                     Padding(
@@ -658,6 +663,15 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                             : null;
                                     return FFButtonWidget(
                                       onPressed: () async {
+                                        setState(() {
+                                          FFAppState().updatePagPixStruct(
+                                            (e) => e
+                                              ..status = StatusPixCall.status(
+                                                columnStatusPixResponse
+                                                    .jsonBody,
+                                              ).toString(),
+                                          );
+                                        });
                                         setState(() =>
                                             _model.apiRequestCompleter = null);
                                         await _model
