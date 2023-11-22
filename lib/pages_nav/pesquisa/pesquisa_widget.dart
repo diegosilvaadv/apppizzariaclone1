@@ -3,22 +3,19 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_autocomplete_options_list.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:text_search/text_search.dart';
 import 'pesquisa_model.dart';
 export 'pesquisa_model.dart';
 
 class PesquisaWidget extends StatefulWidget {
-  const PesquisaWidget({Key? key}) : super(key: key);
+  const PesquisaWidget({super.key});
 
   @override
   _PesquisaWidgetState createState() => _PesquisaWidgetState();
@@ -84,7 +81,7 @@ class _PesquisaWidgetState extends State<PesquisaWidget>
           mainAxisSize: MainAxisSize.max,
           children: [
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(15.0, 30.0, 15.0, 15.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(15.0, 30.0, 15.0, 15.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -100,7 +97,7 @@ class _PesquisaWidgetState extends State<PesquisaWidget>
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -119,7 +116,7 @@ class _PesquisaWidgetState extends State<PesquisaWidget>
                           borderRadius: BorderRadius.circular(12.0),
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               8.0, 8.0, 8.0, 8.0),
                           child: FutureBuilder<List<ProdutosRow>>(
                             future: ProdutosTable().queryRows(
@@ -136,7 +133,7 @@ class _PesquisaWidgetState extends State<PesquisaWidget>
                             builder: (context, snapshot) {
                               // Customize what your widget looks like when it's loading.
                               if (!snapshot.hasData) {
-                                return Center(
+                                return const Center(
                                   child: SizedBox(
                                     width: 15.0,
                                     height: 15.0,
@@ -150,7 +147,7 @@ class _PesquisaWidgetState extends State<PesquisaWidget>
                               List<ProdutosRow> textFieldProdutosRowList =
                                   snapshot.data!;
                               return Autocomplete<String>(
-                                initialValue: TextEditingValue(),
+                                initialValue: const TextEditingValue(),
                                 optionsBuilder: (textEditingValue) {
                                   if (textEditingValue.text == '') {
                                     return const Iterable<String>.empty();
@@ -175,7 +172,7 @@ class _PesquisaWidgetState extends State<PesquisaWidget>
                                     onSelected: onSelected,
                                     textStyle:
                                         FlutterFlowTheme.of(context).bodyMedium,
-                                    textHighlightStyle: TextStyle(),
+                                    textHighlightStyle: const TextStyle(),
                                     elevation: 4.0,
                                     optionBackgroundColor:
                                         FlutterFlowTheme.of(context)
@@ -207,7 +204,7 @@ class _PesquisaWidgetState extends State<PesquisaWidget>
                                     onEditingComplete: onEditingComplete,
                                     onChanged: (_) => EasyDebounce.debounce(
                                       '_model.textController',
-                                      Duration(milliseconds: 2000),
+                                      const Duration(milliseconds: 2000),
                                       () async {
                                         safeSetState(() {
                                           _model
@@ -225,7 +222,6 @@ class _PesquisaWidgetState extends State<PesquisaWidget>
                                                   _model.textController.text)
                                               .map((r) => r.object)
                                               .toList();
-                                          ;
                                         });
                                       },
                                     ),
@@ -300,7 +296,6 @@ class _PesquisaWidgetState extends State<PesquisaWidget>
                                                           .textController.text)
                                                       .map((r) => r.object)
                                                       .toList();
-                                                  ;
                                                 });
                                                 setState(() {});
                                               },
@@ -350,7 +345,7 @@ class _PesquisaWidgetState extends State<PesquisaWidget>
                           builder: (context, snapshot) {
                             // Customize what your widget looks like when it's loading.
                             if (!snapshot.hasData) {
-                              return Center(
+                              return const Center(
                                 child: SizedBox(
                                   width: 15.0,
                                   height: 15.0,
@@ -373,7 +368,7 @@ class _PesquisaWidgetState extends State<PesquisaWidget>
                                 final listViewProdutosRow =
                                     listViewProdutosRowList[listViewIndex];
                                 return Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       10.0, 10.0, 10.0, 10.0),
                                   child: Material(
                                     color: Colors.transparent,
@@ -419,7 +414,7 @@ class _PesquisaWidgetState extends State<PesquisaWidget>
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(
                                                                 10.0,
                                                                 10.0,
@@ -451,7 +446,7 @@ class _PesquisaWidgetState extends State<PesquisaWidget>
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
@@ -480,7 +475,7 @@ class _PesquisaWidgetState extends State<PesquisaWidget>
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
@@ -524,7 +519,7 @@ class _PesquisaWidgetState extends State<PesquisaWidget>
                                                                   .override(
                                                                     fontFamily:
                                                                         'Readex Pro',
-                                                                    color: Color(
+                                                                    color: const Color(
                                                                         0xFF10DA26),
                                                                     fontSize:
                                                                         16.0,
@@ -542,7 +537,7 @@ class _PesquisaWidgetState extends State<PesquisaWidget>
                                               ),
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 0.0, 10.0, 0.0),
                                               child: Column(
@@ -588,7 +583,7 @@ class _PesquisaWidgetState extends State<PesquisaWidget>
                           builder: (context, snapshot) {
                             // Customize what your widget looks like when it's loading.
                             if (!snapshot.hasData) {
-                              return Center(
+                              return const Center(
                                 child: SizedBox(
                                   width: 15.0,
                                   height: 15.0,
@@ -611,7 +606,7 @@ class _PesquisaWidgetState extends State<PesquisaWidget>
                                 final listViewProdutosRow =
                                     listViewProdutosRowList[listViewIndex];
                                 return Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       10.0, 10.0, 10.0, 10.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
@@ -657,7 +652,7 @@ class _PesquisaWidgetState extends State<PesquisaWidget>
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(
                                                                 10.0,
                                                                 10.0,
@@ -689,7 +684,7 @@ class _PesquisaWidgetState extends State<PesquisaWidget>
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
@@ -718,7 +713,7 @@ class _PesquisaWidgetState extends State<PesquisaWidget>
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
@@ -769,7 +764,7 @@ class _PesquisaWidgetState extends State<PesquisaWidget>
                                                                   .override(
                                                                     fontFamily:
                                                                         'Readex Pro',
-                                                                    color: Color(
+                                                                    color: const Color(
                                                                         0xFF10DA26),
                                                                     fontSize:
                                                                         16.0,
@@ -787,7 +782,7 @@ class _PesquisaWidgetState extends State<PesquisaWidget>
                                               ),
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 0.0, 10.0, 0.0),
                                               child: Column(
@@ -825,7 +820,7 @@ class _PesquisaWidgetState extends State<PesquisaWidget>
                 Expanded(
                   child: Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                        const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
                     child: Material(
                       color: Colors.transparent,
                       elevation: 20.0,
@@ -857,7 +852,7 @@ class _PesquisaWidgetState extends State<PesquisaWidget>
                                 context.goNamed(
                                   'HomePage',
                                   extra: <String, dynamic>{
-                                    kTransitionInfoKey: TransitionInfo(
+                                    kTransitionInfoKey: const TransitionInfo(
                                       hasTransition: true,
                                       transitionType: PageTransitionType.fade,
                                       duration: Duration(milliseconds: 0),
@@ -881,14 +876,14 @@ class _PesquisaWidgetState extends State<PesquisaWidget>
                                 context.pushNamed(
                                   'pesquisa',
                                   extra: <String, dynamic>{
-                                    kTransitionInfoKey: TransitionInfo(
+                                    kTransitionInfoKey: const TransitionInfo(
                                       hasTransition: true,
                                       transitionType: PageTransitionType.fade,
                                     ),
                                   },
                                 );
                               },
-                              child: Icon(
+                              child: const Icon(
                                 Icons.search,
                                 color: Color(0xFFE46D1F),
                                 size: 35.0,
@@ -896,12 +891,12 @@ class _PesquisaWidgetState extends State<PesquisaWidget>
                             ).animateOnPageLoad(
                                 animationsMap['iconOnPageLoadAnimation']!),
                             Align(
-                              alignment: AlignmentDirectional(0.00, 0.00),
+                              alignment: const AlignmentDirectional(0.00, 0.00),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                    alignment: const AlignmentDirectional(0.00, 0.00),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
                                       focusColor: Colors.transparent,
@@ -911,7 +906,7 @@ class _PesquisaWidgetState extends State<PesquisaWidget>
                                         context.pushNamed(
                                           'meucarrinho',
                                           extra: <String, dynamic>{
-                                            kTransitionInfoKey: TransitionInfo(
+                                            kTransitionInfoKey: const TransitionInfo(
                                               hasTransition: true,
                                               transitionType:
                                                   PageTransitionType.fade,
@@ -924,7 +919,7 @@ class _PesquisaWidgetState extends State<PesquisaWidget>
                                       child: Stack(
                                         children: [
                                           Align(
-                                            alignment: AlignmentDirectional(
+                                            alignment: const AlignmentDirectional(
                                                 0.00, 0.00),
                                             child: Icon(
                                               Icons.local_grocery_store,
@@ -935,10 +930,10 @@ class _PesquisaWidgetState extends State<PesquisaWidget>
                                             ),
                                           ),
                                           Align(
-                                            alignment: AlignmentDirectional(
+                                            alignment: const AlignmentDirectional(
                                                 1.00, -1.00),
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       30.0, 0.0, 0.0, 0.0),
                                               child: badges.Badge(
@@ -957,9 +952,9 @@ class _PesquisaWidgetState extends State<PesquisaWidget>
                                                 ),
                                                 showBadge: true,
                                                 shape: badges.BadgeShape.circle,
-                                                badgeColor: Color(0xFF10DA26),
+                                                badgeColor: const Color(0xFF10DA26),
                                                 elevation: 4.0,
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         8.0, 8.0, 8.0, 8.0),
                                                 position: badges.BadgePosition
@@ -992,7 +987,7 @@ class _PesquisaWidgetState extends State<PesquisaWidget>
                                 context.pushNamed(
                                   'MeusPedidos',
                                   extra: <String, dynamic>{
-                                    kTransitionInfoKey: TransitionInfo(
+                                    kTransitionInfoKey: const TransitionInfo(
                                       hasTransition: true,
                                       transitionType: PageTransitionType.fade,
                                       duration: Duration(milliseconds: 0),
@@ -1016,7 +1011,7 @@ class _PesquisaWidgetState extends State<PesquisaWidget>
                                 context.pushNamed(
                                   'Perfil',
                                   extra: <String, dynamic>{
-                                    kTransitionInfoKey: TransitionInfo(
+                                    kTransitionInfoKey: const TransitionInfo(
                                       hasTransition: true,
                                       transitionType: PageTransitionType.fade,
                                       duration: Duration(milliseconds: 0),

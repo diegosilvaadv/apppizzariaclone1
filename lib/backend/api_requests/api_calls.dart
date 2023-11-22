@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:typed_data';
 
 import '/flutter_flow/flutter_flow_util.dart';
 import 'api_manager.dart';
@@ -14,7 +13,7 @@ class BuscarCEPCall {
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'BuscarCEP',
-      apiUrl: 'viacep.com.br/ws/${cep}/json/',
+      apiUrl: 'viacep.com.br/ws/$cep/json/',
       callType: ApiCallType.GET,
       headers: {},
       params: {},
@@ -64,15 +63,15 @@ class PixMercadoPagoCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "transaction_amount": ${amount},
+  "transaction_amount": $amount,
   "payment_method_id": "pix",
   "payer": {
-    "email": "${email}",
-    "first_name": "${firstName}",
-    "last_name": "${lastName}",
+    "email": "$email",
+    "first_name": "$firstName",
+    "last_name": "$lastName",
     "identification": {
-      "type": "${identificationType}",
-      "number": "${numberCpf}"
+      "type": "$identificationType",
+      "number": "$numberCpf"
     }
   }
 }''';
@@ -82,7 +81,7 @@ class PixMercadoPagoCall {
       callType: ApiCallType.POST,
       headers: {
         'Content-Type': 'application/json',
-        'X-Idempotency-Key': '0d5020ed-1af6-469c-ae06-${chavealetoria}',
+        'X-Idempotency-Key': '0d5020ed-1af6-469c-ae06-$chavealetoria',
         'Authorization':
             'Bearer APP_USR-2540313967326267-111909-94d7cfcc16413329acb45f48567519c7-433297459',
       },
@@ -116,7 +115,7 @@ class StatusPixCall {
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'Status Pix',
-      apiUrl: 'https://api.mercadopago.com/v1/payments/${idPix}',
+      apiUrl: 'https://api.mercadopago.com/v1/payments/$idPix',
       callType: ApiCallType.GET,
       headers: {
         'Authorization':

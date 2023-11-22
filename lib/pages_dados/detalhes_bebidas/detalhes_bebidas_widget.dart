@@ -2,22 +2,19 @@ import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'detalhes_bebidas_model.dart';
 export 'detalhes_bebidas_model.dart';
 
 class DetalhesBebidasWidget extends StatefulWidget {
   const DetalhesBebidasWidget({
-    Key? key,
+    super.key,
     required this.detalhesProdutos,
-  }) : super(key: key);
+  });
 
   final ProdutosRow? detalhesProdutos;
 
@@ -39,10 +36,10 @@ class _DetalhesBebidasWidgetState extends State<DetalhesBebidasWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       setState(() {
         FFAppState().bordasRef = BordasRefStruct.fromSerializableMap(
-            jsonDecode('{\"nome_borda\":\"borda\",\"preco_borda\":\"0\"}'));
+            jsonDecode('{"nome_borda":"borda","preco_borda":"0"}'));
         FFAppState().quanty = 1;
         FFAppState().Sabores = SaboresRefStruct.fromSerializableMap(jsonDecode(
-            '{\"NomeSabor1\":\"nome\",\"NomeSabor2\":\"nome\",\"NomeSabor3\":\"nome\",\"NomeSabor4\":\"nome\",\"PrecoSabor1\":\"0\",\"PrecoSabor2\":\"0\",\"PrecoSabor3\":\"0\",\"PrecoSabor4\":\"0\"}'));
+            '{"NomeSabor1":"nome","NomeSabor2":"nome","NomeSabor3":"nome","NomeSabor4":"nome","PrecoSabor1":"0","PrecoSabor2":"0","PrecoSabor3":"0","PrecoSabor4":"0"}'));
         FFAppState().CondicaoGeral = 0;
         FFAppState().CondicaoBordas = 0;
       });
@@ -101,7 +98,7 @@ class _DetalhesBebidasWidgetState extends State<DetalhesBebidasWidget> {
                         child: Stack(
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   10.0, 10.0, 10.0, 10.0),
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(8.0),
@@ -114,7 +111,7 @@ class _DetalhesBebidasWidgetState extends State<DetalhesBebidasWidget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   15.0, 30.0, 15.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -137,7 +134,7 @@ class _DetalhesBebidasWidgetState extends State<DetalhesBebidasWidget> {
                                             BorderRadius.circular(8.0),
                                       ),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             6.0, 6.0, 6.0, 6.0),
                                         child: Icon(
                                           Icons.chevron_left,
@@ -159,7 +156,7 @@ class _DetalhesBebidasWidgetState extends State<DetalhesBebidasWidget> {
                                             BorderRadius.circular(8.0),
                                       ),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             8.0, 6.0, 8.0, 6.0),
                                         child: Text(
                                           valueOrDefault<String>(
@@ -184,7 +181,7 @@ class _DetalhesBebidasWidgetState extends State<DetalhesBebidasWidget> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             10.0, 10.0, 10.0, 10.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -203,7 +200,7 @@ class _DetalhesBebidasWidgetState extends State<DetalhesBebidasWidget> {
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Readex Pro',
-                                      color: Color(0xFF10DA26),
+                                      color: const Color(0xFF10DA26),
                                       fontSize: 20.0,
                                       fontWeight: FontWeight.w600,
                                     ),
@@ -213,7 +210,7 @@ class _DetalhesBebidasWidgetState extends State<DetalhesBebidasWidget> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             10.0, 0.0, 10.0, 10.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -238,7 +235,7 @@ class _DetalhesBebidasWidgetState extends State<DetalhesBebidasWidget> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             10.0, 0.0, 10.0, 10.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -275,7 +272,7 @@ class _DetalhesBebidasWidgetState extends State<DetalhesBebidasWidget> {
                 color: FlutterFlowTheme.of(context).secondaryBackground,
               ),
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -292,7 +289,7 @@ class _DetalhesBebidasWidgetState extends State<DetalhesBebidasWidget> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 8.0, 0.0, 0.0, 0.0),
                             child: InkWell(
                               splashColor: Colors.transparent,
@@ -318,7 +315,7 @@ class _DetalhesBebidasWidgetState extends State<DetalhesBebidasWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 8.0, 0.0, 8.0, 0.0),
                             child: Text(
                               formatNumber(
@@ -336,7 +333,7 @@ class _DetalhesBebidasWidgetState extends State<DetalhesBebidasWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 8.0, 0.0),
                             child: InkWell(
                               splashColor: Colors.transparent,
@@ -394,7 +391,7 @@ class _DetalhesBebidasWidgetState extends State<DetalhesBebidasWidget> {
                           width: 220.0,
                           height: 100.0,
                           decoration: BoxDecoration(
-                            color: Color(0xFF10DA26),
+                            color: const Color(0xFF10DA26),
                             borderRadius: BorderRadius.circular(12.0),
                           ),
                           child: Row(
@@ -402,7 +399,7 @@ class _DetalhesBebidasWidgetState extends State<DetalhesBebidasWidget> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     10.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   'Adicionar',
@@ -416,7 +413,7 @@ class _DetalhesBebidasWidgetState extends State<DetalhesBebidasWidget> {
                               ),
                               Flexible(
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 8.0, 0.0),
                                   child: Text(
                                     formatNumber(

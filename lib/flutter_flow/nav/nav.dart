@@ -2,22 +2,14 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:go_router/go_router.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 
-import '/backend/schema/structs/index.dart';
 
 import '/backend/supabase/supabase.dart';
 import '/auth/base_auth_user_provider.dart';
 
 import '/index.dart';
-import '/main.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/lat_lng.dart';
-import '/flutter_flow/place.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'serialization_util.dart';
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
@@ -82,33 +74,33 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? HomePageWidget() : LoginWidget(),
+          appStateNotifier.loggedIn ? const HomePageWidget() : const LoginWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? HomePageWidget() : LoginWidget(),
+              appStateNotifier.loggedIn ? const HomePageWidget() : const LoginWidget(),
         ),
         FFRoute(
           name: 'HomePage',
           path: '/homePage',
-          builder: (context, params) => HomePageWidget(),
+          builder: (context, params) => const HomePageWidget(),
         ),
         FFRoute(
           name: 'Login',
           path: '/login',
-          builder: (context, params) => LoginWidget(),
+          builder: (context, params) => const LoginWidget(),
         ),
         FFRoute(
           name: 'pizza2sab8G',
           path: '/pizza2sab8G',
-          builder: (context, params) => Pizza2sab8GWidget(),
+          builder: (context, params) => const Pizza2sab8GWidget(),
         ),
         FFRoute(
           name: 'meucarrinho',
           path: '/meucarrinho',
-          builder: (context, params) => MeucarrinhoWidget(),
+          builder: (context, params) => const MeucarrinhoWidget(),
         ),
         FFRoute(
           name: 'pagamento',
@@ -120,12 +112,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'MeusPedidos',
           path: '/meusPedidos',
-          builder: (context, params) => MeusPedidosWidget(),
+          builder: (context, params) => const MeusPedidosWidget(),
         ),
         FFRoute(
           name: 'pesquisa',
           path: '/pesquisa',
-          builder: (context, params) => PesquisaWidget(),
+          builder: (context, params) => const PesquisaWidget(),
         ),
         FFRoute(
           name: 'detalhes_pizzas',
@@ -138,12 +130,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'pizza2sab16GG',
           path: '/pizza2sab16GG',
-          builder: (context, params) => Pizza2sab16GGWidget(),
+          builder: (context, params) => const Pizza2sab16GGWidget(),
         ),
         FFRoute(
           name: 'pizza4sab16GG',
           path: '/pizza4sab16GG',
-          builder: (context, params) => Pizza4sab16GGWidget(),
+          builder: (context, params) => const Pizza4sab16GGWidget(),
         ),
         FFRoute(
           name: 'detalhes_bebidas',
@@ -156,7 +148,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'Perfil',
           path: '/perfil',
-          builder: (context, params) => PerfilWidget(),
+          builder: (context, params) => const PerfilWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -338,7 +330,7 @@ class FFRoute {
                 )
               : builder(context, ffParams);
           final child = appStateNotifier.loading
-              ? Center(
+              ? const Center(
                   child: SizedBox(
                     width: 15.0,
                     height: 15.0,
@@ -383,7 +375,7 @@ class TransitionInfo {
   final Duration duration;
   final Alignment? alignment;
 
-  static TransitionInfo appDefault() => TransitionInfo(hasTransition: false);
+  static TransitionInfo appDefault() => const TransitionInfo(hasTransition: false);
 }
 
 class RootPageContext {

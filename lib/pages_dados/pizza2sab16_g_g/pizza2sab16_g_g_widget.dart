@@ -9,13 +9,12 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'pizza2sab16_g_g_model.dart';
 export 'pizza2sab16_g_g_model.dart';
 
 class Pizza2sab16GGWidget extends StatefulWidget {
-  const Pizza2sab16GGWidget({Key? key}) : super(key: key);
+  const Pizza2sab16GGWidget({super.key});
 
   @override
   _Pizza2sab16GGWidgetState createState() => _Pizza2sab16GGWidgetState();
@@ -35,10 +34,10 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       setState(() {
         FFAppState().bordasRef = BordasRefStruct.fromSerializableMap(
-            jsonDecode('{\"nome_borda\":\"borda\",\"preco_borda\":\"0\"}'));
+            jsonDecode('{"nome_borda":"borda","preco_borda":"0"}'));
         FFAppState().quanty = 1;
         FFAppState().Sabores = SaboresRefStruct.fromSerializableMap(jsonDecode(
-            '{\"NomeSabor1\":\"nome\",\"NomeSabor2\":\"nome\",\"NomeSabor3\":\"nome\",\"NomeSabor4\":\"nome\",\"PrecoSabor1\":\"0\",\"PrecoSabor2\":\"0\",\"PrecoSabor3\":\"0\",\"PrecoSabor4\":\"0\"}'));
+            '{"NomeSabor1":"nome","NomeSabor2":"nome","NomeSabor3":"nome","NomeSabor4":"nome","PrecoSabor1":"0","PrecoSabor2":"0","PrecoSabor3":"0","PrecoSabor4":"0"}'));
         FFAppState().CondicaoGeral = 0;
         FFAppState().CondicaoBordas = 0;
       });
@@ -101,7 +100,7 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                         child: Stack(
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   10.0, 10.0, 10.0, 10.0),
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(8.0),
@@ -114,7 +113,7 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   15.0, 30.0, 15.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -137,7 +136,7 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                                             BorderRadius.circular(8.0),
                                       ),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             6.0, 6.0, 6.0, 6.0),
                                         child: Icon(
                                           Icons.chevron_left,
@@ -159,7 +158,7 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                                             BorderRadius.circular(8.0),
                                       ),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             8.0, 6.0, 8.0, 6.0),
                                         child: Text(
                                           'Pizza Extra Grande 2 Sabores',
@@ -180,7 +179,7 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             10.0, 10.0, 10.0, 10.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -205,7 +204,7 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                         children: [
                           Expanded(
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   10.0, 10.0, 10.0, 10.0),
                               child: Material(
                                 color: Colors.transparent,
@@ -221,11 +220,11 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                                     borderRadius: BorderRadius.circular(12.0),
                                   ),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         10.0, 10.0, 10.0, 10.0),
                                     child: Container(
                                       width: double.infinity,
-                                      color: Color(0x00FFFFFF),
+                                      color: const Color(0x00FFFFFF),
                                       child: ExpandableNotifier(
                                         controller:
                                             _model.expandableController1,
@@ -234,7 +233,7 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 6.0, 0.0),
                                                 child: Card(
@@ -251,7 +250,7 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(6.0, 6.0,
                                                                 6.0, 6.0),
                                                     child: Text(
@@ -302,7 +301,7 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                                                       0.0)
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   10.0,
                                                                   10.0,
@@ -326,7 +325,7 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                                                           // Customize what your widget looks like when it's loading.
                                                           if (!snapshot
                                                               .hasData) {
-                                                            return Center(
+                                                            return const Center(
                                                               child: SizedBox(
                                                                 width: 15.0,
                                                                 height: 15.0,
@@ -402,7 +401,7 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                                                                   ),
                                                                   child:
                                                                       Padding(
-                                                                    padding: EdgeInsetsDirectional
+                                                                    padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             10.0,
                                                                             10.0,
@@ -433,7 +432,7 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                                                                                         ),
                                                                                   ),
                                                                                   Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
                                                                                     child: Text(
                                                                                       listViewProdutosRow.tag!,
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -477,7 +476,7 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                                                       0.0)
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   10.0,
                                                                   10.0,
@@ -527,7 +526,7 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Readex Pro',
-                                                                  color: Color(
+                                                                  color: const Color(
                                                                       0xFF10DA26),
                                                                   fontSize:
                                                                       21.0,
@@ -542,7 +541,7 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                                                       0.0)
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   10.0,
                                                                   10.0,
@@ -580,20 +579,20 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                                                                 FFButtonOptions(
                                                               height: 40.0,
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           24.0,
                                                                           0.0,
                                                                           24.0,
                                                                           0.0),
                                                               iconPadding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           0.0,
                                                                           0.0),
-                                                              color: Color(
+                                                              color: const Color(
                                                                   0xFFE46D1F),
                                                               textStyle:
                                                                   FlutterFlowTheme.of(
@@ -607,7 +606,7 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                                                                       ),
                                                               elevation: 3.0,
                                                               borderSide:
-                                                                  BorderSide(
+                                                                  const BorderSide(
                                                                 color: Colors
                                                                     .transparent,
                                                                 width: 1.0,
@@ -654,7 +653,7 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                         children: [
                           Expanded(
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   10.0, 10.0, 10.0, 10.0),
                               child: Material(
                                 color: Colors.transparent,
@@ -670,11 +669,11 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                                     borderRadius: BorderRadius.circular(12.0),
                                   ),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         10.0, 10.0, 10.0, 10.0),
                                     child: Container(
                                       width: double.infinity,
-                                      color: Color(0x00FFFFFF),
+                                      color: const Color(0x00FFFFFF),
                                       child: ExpandableNotifier(
                                         controller:
                                             _model.expandableController2,
@@ -683,7 +682,7 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 6.0, 0.0),
                                                 child: Card(
@@ -700,7 +699,7 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(6.0, 6.0,
                                                                 6.0, 6.0),
                                                     child: Text(
@@ -751,7 +750,7 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                                                       0.0)
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   10.0,
                                                                   10.0,
@@ -775,7 +774,7 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                                                           // Customize what your widget looks like when it's loading.
                                                           if (!snapshot
                                                               .hasData) {
-                                                            return Center(
+                                                            return const Center(
                                                               child: SizedBox(
                                                                 width: 15.0,
                                                                 height: 15.0,
@@ -851,7 +850,7 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                                                                   ),
                                                                   child:
                                                                       Padding(
-                                                                    padding: EdgeInsetsDirectional
+                                                                    padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             10.0,
                                                                             10.0,
@@ -882,7 +881,7 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                                                                                         ),
                                                                                   ),
                                                                                   Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
+                                                                                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
                                                                                     child: Text(
                                                                                       listViewProdutosRow.tag!,
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -926,7 +925,7 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                                                       0.0)
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   10.0,
                                                                   10.0,
@@ -976,7 +975,7 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Readex Pro',
-                                                                  color: Color(
+                                                                  color: const Color(
                                                                       0xFF10DA26),
                                                                   fontSize:
                                                                       21.0,
@@ -991,7 +990,7 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                                                       0.0)
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   10.0,
                                                                   10.0,
@@ -1029,20 +1028,20 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                                                                 FFButtonOptions(
                                                               height: 40.0,
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           24.0,
                                                                           0.0,
                                                                           24.0,
                                                                           0.0),
                                                               iconPadding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           0.0,
                                                                           0.0),
-                                                              color: Color(
+                                                              color: const Color(
                                                                   0xFFE46D1F),
                                                               textStyle:
                                                                   FlutterFlowTheme.of(
@@ -1056,7 +1055,7 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                                                                       ),
                                                               elevation: 3.0,
                                                               borderSide:
-                                                                  BorderSide(
+                                                                  const BorderSide(
                                                                 color: Colors
                                                                     .transparent,
                                                                 width: 1.0,
@@ -1103,7 +1102,7 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                         children: [
                           Expanded(
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   10.0, 10.0, 10.0, 10.0),
                               child: Material(
                                 color: Colors.transparent,
@@ -1119,11 +1118,11 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                                     borderRadius: BorderRadius.circular(12.0),
                                   ),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         10.0, 10.0, 10.0, 10.0),
                                     child: Container(
                                       width: double.infinity,
-                                      color: Color(0x00FFFFFF),
+                                      color: const Color(0x00FFFFFF),
                                       child: ExpandableNotifier(
                                         controller:
                                             _model.expandableController3,
@@ -1132,7 +1131,7 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 6.0, 0.0),
                                                 child: Card(
@@ -1149,7 +1148,7 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(6.0, 6.0,
                                                                 6.0, 6.0),
                                                     child: Icon(
@@ -1188,7 +1187,7 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                                               if (FFAppState().CondicaoBordas ==
                                                   2)
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(10.0, 10.0,
                                                           10.0, 10.0),
                                                   child: FutureBuilder<
@@ -1206,7 +1205,7 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                                                         (context, snapshot) {
                                                       // Customize what your widget looks like when it's loading.
                                                       if (!snapshot.hasData) {
-                                                        return Center(
+                                                        return const Center(
                                                           child: SizedBox(
                                                             width: 15.0,
                                                             height: 15.0,
@@ -1286,7 +1285,7 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                                                                             8.0),
                                                               ),
                                                               child: Padding(
-                                                                padding: EdgeInsetsDirectional
+                                                                padding: const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         10.0,
                                                                         10.0,
@@ -1349,7 +1348,7 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                                               if (FFAppState().CondicaoBordas ==
                                                   3)
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(10.0, 10.0,
                                                           10.0, 10.0),
                                                   child: Row(
@@ -1394,7 +1393,7 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                                                             .override(
                                                               fontFamily:
                                                                   'Readex Pro',
-                                                              color: Color(
+                                                              color: const Color(
                                                                   0xFF10DA26),
                                                               fontSize: 20.0,
                                                             ),
@@ -1405,7 +1404,7 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                                               if (FFAppState().CondicaoBordas !=
                                                   0)
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(10.0, 10.0,
                                                           10.0, 10.0),
                                                   child: Row(
@@ -1423,7 +1422,7 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                                                                 BordasRefStruct
                                                                     .fromSerializableMap(
                                                                         jsonDecode(
-                                                                            '{\"nome_borda\":\"borda\",\"preco_borda\":\"0\"}'));
+                                                                            '{"nome_borda":"borda","preco_borda":"0"}'));
                                                             FFAppState()
                                                                     .CondicaoGeral =
                                                                 FFAppState()
@@ -1441,21 +1440,21 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                                                             FFButtonOptions(
                                                           height: 40.0,
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       24.0,
                                                                       0.0,
                                                                       24.0,
                                                                       0.0),
                                                           iconPadding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
                                                                       0.0,
                                                                       0.0),
                                                           color:
-                                                              Color(0xFFE46D1F),
+                                                              const Color(0xFFE46D1F),
                                                           textStyle:
                                                               FlutterFlowTheme.of(
                                                                       context)
@@ -1468,7 +1467,7 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                                                                   ),
                                                           elevation: 3.0,
                                                           borderSide:
-                                                              BorderSide(
+                                                              const BorderSide(
                                                             color: Colors
                                                                 .transparent,
                                                             width: 1.0,
@@ -1519,7 +1518,7 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                 color: FlutterFlowTheme.of(context).secondaryBackground,
               ),
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
                 child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
@@ -1538,7 +1537,7 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   8.0, 0.0, 0.0, 0.0),
                               child: InkWell(
                                 splashColor: Colors.transparent,
@@ -1564,7 +1563,7 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   8.0, 0.0, 8.0, 0.0),
                               child: Text(
                                 formatNumber(
@@ -1582,7 +1581,7 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 8.0, 0.0),
                               child: InkWell(
                                 splashColor: Colors.transparent,
@@ -1612,7 +1611,7 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                       ),
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -1646,10 +1645,10 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                                 FFAppState().CondicaoGeral = 0;
                                 FFAppState().bordasRef = BordasRefStruct
                                     .fromSerializableMap(jsonDecode(
-                                        '{\"nome_borda\":\"borda\",\"preco_borda\":\"0\"}'));
+                                        '{"nome_borda":"borda","preco_borda":"0"}'));
                                 FFAppState().Sabores = SaboresRefStruct
                                     .fromSerializableMap(jsonDecode(
-                                        '{\"NomeSabor1\":\"nome\",\"NomeSabor2\":\"nome\",\"NomeSabor3\":\"nome\",\"NomeSabor4\":\"nome\",\"PrecoSabor1\":\"0\",\"PrecoSabor2\":\"0\",\"PrecoSabor3\":\"0\",\"PrecoSabor4\":\"0\"}'));
+                                        '{"NomeSabor1":"nome","NomeSabor2":"nome","NomeSabor3":"nome","NomeSabor4":"nome","PrecoSabor1":"0","PrecoSabor2":"0","PrecoSabor3":"0","PrecoSabor4":"0"}'));
                                 FFAppState().NumCarrinho =
                                     FFAppState().NumCarrinho + 1;
                               });
@@ -1665,7 +1664,7 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                                           .primaryText,
                                     ),
                                   ),
-                                  duration: Duration(milliseconds: 4000),
+                                  duration: const Duration(milliseconds: 4000),
                                   backgroundColor:
                                       FlutterFlowTheme.of(context).secondary,
                                 ),
@@ -1681,7 +1680,7 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                                   return FlutterFlowTheme.of(context)
                                       .primaryBackground;
                                 } else if (FFAppState().CondicaoGeral == 3) {
-                                  return Color(0xFF10DA26);
+                                  return const Color(0xFF10DA26);
                                 } else {
                                   return FlutterFlowTheme.of(context)
                                       .primaryBackground;
@@ -1694,7 +1693,7 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       6.0, 0.0, 0.0, 0.0),
                                   child: Text(
                                     'Adicionar',
@@ -1708,7 +1707,7 @@ class _Pizza2sab16GGWidgetState extends State<Pizza2sab16GGWidget> {
                                 ),
                                 Expanded(
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         6.0, 0.0, 6.0, 0.0),
                                     child: Text(
                                       formatNumber(

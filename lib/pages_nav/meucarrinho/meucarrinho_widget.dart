@@ -7,7 +7,6 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/backend/schema/structs/index.dart';
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
@@ -16,13 +15,12 @@ import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'meucarrinho_model.dart';
 export 'meucarrinho_model.dart';
 
 class MeucarrinhoWidget extends StatefulWidget {
-  const MeucarrinhoWidget({Key? key}) : super(key: key);
+  const MeucarrinhoWidget({super.key});
 
   @override
   _MeucarrinhoWidgetState createState() => _MeucarrinhoWidgetState();
@@ -61,8 +59,8 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: Offset(38.0, 0.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(38.0, 0.0),
+          end: const Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -81,8 +79,8 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: Offset(62.0, 0.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(62.0, 0.0),
+          end: const Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -101,8 +99,8 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: Offset(-63.0, 0.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(-63.0, 0.0),
+          end: const Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -121,7 +119,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
           delay: 150.ms,
           duration: 1000.ms,
           hz: 10,
-          offset: Offset(0.0, 0.0),
+          offset: const Offset(0.0, 0.0),
           rotation: 0.087,
         ),
       ],
@@ -141,7 +139,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
           delay: 150.ms,
           duration: 1000.ms,
           hz: 10,
-          offset: Offset(0.0, 0.0),
+          offset: const Offset(0.0, 0.0),
           rotation: 0.087,
         ),
       ],
@@ -172,8 +170,8 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 210.ms,
-          begin: Offset(0.0, -22.0),
-          end: Offset(0.0, 0.0),
+          begin: const Offset(0.0, -22.0),
+          end: const Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -236,7 +234,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                   fontWeight: FontWeight.w500,
                 ),
           ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation']!),
-          actions: [],
+          actions: const [],
           centerTitle: true,
           elevation: 0.0,
         ),
@@ -256,7 +254,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             10.0, 0.0, 10.0, 10.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -288,7 +286,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                       ),
                       if (FFAppState().NumCarrinho != 0)
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               10.0, 0.0, 10.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -305,11 +303,11 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                 text: 'Limpar',
                                 options: FFButtonOptions(
                                   height: 40.0,
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       10.0, 0.0, 10.0, 0.0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
-                                  color: Color(0xFFE13C27),
+                                  color: const Color(0xFFE13C27),
                                   textStyle: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
@@ -318,7 +316,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                         fontSize: 15.0,
                                       ),
                                   elevation: 3.0,
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                     color: Colors.transparent,
                                     width: 1.0,
                                   ),
@@ -344,7 +342,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         10.0, 10.0, 10.0, 10.0),
                                     child: Material(
                                       color: Colors.transparent,
@@ -363,7 +361,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                         ),
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   10.0, 10.0, 10.0, 10.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -380,7 +378,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                               ),
                                               Flexible(
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           6.0, 0.0, 0.0, 0.0),
                                                   child: Column(
@@ -392,7 +390,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                                     children: [
                                                       Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -405,7 +403,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                                             Expanded(
                                                               child: Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             6.0,
                                                                             0.0,
@@ -431,7 +429,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     6.0,
                                                                     0.0,
@@ -471,14 +469,14 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                                                       .override(
                                                                         fontFamily:
                                                                             'Readex Pro',
-                                                                        color: Color(
+                                                                        color: const Color(
                                                                             0xFF10DA26),
                                                                         fontSize:
                                                                             18.0,
                                                                       ),
                                                                 ),
                                                                 Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           4.0,
                                                                           0.0,
@@ -506,7 +504,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     6.0,
                                                                     0.0,
@@ -520,7 +518,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                                                   .start,
                                                           children: [
                                                             Text(
-                                                              '${pedidosItem.nomeBorda}',
+                                                              pedidosItem.nomeBorda,
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyMedium
@@ -568,7 +566,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                                                           fontFamily:
                                                                               'Readex Pro',
                                                                           color:
-                                                                              Color(0xFF10DA26),
+                                                                              const Color(0xFF10DA26),
                                                                           fontSize:
                                                                               18.0,
                                                                         ),
@@ -577,7 +575,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                                                         .precoBorda !=
                                                                     0.0)
                                                                   Padding(
-                                                                    padding: EdgeInsetsDirectional
+                                                                    padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             4.0,
                                                                             0.0,
@@ -623,11 +621,11 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                                     ),
                                                     child: Align(
                                                       alignment:
-                                                          AlignmentDirectional(
+                                                          const AlignmentDirectional(
                                                               0.00, 0.00),
                                                       child: Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     6.0,
                                                                     6.0,
@@ -745,7 +743,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 6.0,
                                                                 0.0, 0.0),
                                                     child: Row(
@@ -790,7 +788,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                                                   .reset();
                                                             }
                                                           },
-                                                          child: Icon(
+                                                          child: const Icon(
                                                             Icons.delete_sweep,
                                                             color: Color(
                                                                 0xFFE13C27),
@@ -822,7 +820,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                       ),
                       if (FFAppState().NumCarrinho != 0)
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 30.0, 0.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -854,7 +852,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                 ],
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     6.0, 0.0, 0.0, 0.0),
                                 child: FFButtonWidget(
                                   onPressed: () async {
@@ -875,7 +873,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                           child: Padding(
                                             padding: MediaQuery.viewInsetsOf(
                                                 context),
-                                            child: DefinirPagamentoWidget(),
+                                            child: const DefinirPagamentoWidget(),
                                           ),
                                         );
                                       },
@@ -884,9 +882,9 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                   text: 'Definir',
                                   options: FFButtonOptions(
                                     height: 35.0,
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         10.0, 0.0, 10.0, 0.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
                                     color:
                                         FlutterFlowTheme.of(context).tertiary,
@@ -897,7 +895,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                           color: Colors.white,
                                         ),
                                     elevation: 3.0,
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                       color: Colors.transparent,
                                       width: 1.0,
                                     ),
@@ -911,7 +909,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                         ),
                       if (FFAppState().NumCarrinho == 0)
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 30.0, 0.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -944,7 +942,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                 ),
                 child: Padding(
                   padding:
-                      EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                      const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -959,7 +957,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                             size: 24.0,
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 8.0, 0.0, 8.0, 0.0),
                             child: Text(
                               formatNumber(
@@ -984,7 +982,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                           width: 215.0,
                           height: 100.0,
                           decoration: BoxDecoration(
-                            color: Color(0xFF10DA26),
+                            color: const Color(0xFF10DA26),
                             borderRadius: BorderRadius.circular(12.0),
                           ),
                           child: FutureBuilder<List<UsersRow>>(
@@ -997,7 +995,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                             builder: (context, snapshot) {
                               // Customize what your widget looks like when it's loading.
                               if (!snapshot.hasData) {
-                                return Center(
+                                return const Center(
                                   child: SizedBox(
                                     width: 15.0,
                                     height: 15.0,
@@ -1078,7 +1076,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                           ),
                                         }.withoutNulls,
                                         extra: <String, dynamic>{
-                                          kTransitionInfoKey: TransitionInfo(
+                                          kTransitionInfoKey: const TransitionInfo(
                                             hasTransition: true,
                                             transitionType:
                                                 PageTransitionType.fade,
@@ -1098,7 +1096,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                             ),
                                           ),
                                           duration:
-                                              Duration(milliseconds: 4000),
+                                              const Duration(milliseconds: 4000),
                                           backgroundColor:
                                               FlutterFlowTheme.of(context)
                                                   .secondary,
@@ -1121,7 +1119,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                     context.pushNamed(
                                       'pagamento',
                                       extra: <String, dynamic>{
-                                        kTransitionInfoKey: TransitionInfo(
+                                        kTransitionInfoKey: const TransitionInfo(
                                           hasTransition: true,
                                           transitionType:
                                               PageTransitionType.fade,
@@ -1138,7 +1136,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                                 .primaryText,
                                           ),
                                         ),
-                                        duration: Duration(milliseconds: 4000),
+                                        duration: const Duration(milliseconds: 4000),
                                         backgroundColor:
                                             FlutterFlowTheme.of(context)
                                                 .secondary,
@@ -1151,11 +1149,11 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                 text: 'IR PARA PAGAMENTO',
                                 options: FFButtonOptions(
                                   height: 40.0,
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       10.0, 0.0, 10.0, 0.0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
-                                  color: Color(0xFF10DA26),
+                                  color: const Color(0xFF10DA26),
                                   textStyle: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
@@ -1163,7 +1161,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                         color: Colors.white,
                                       ),
                                   elevation: 3.0,
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                     color: Colors.transparent,
                                     width: 1.0,
                                   ),
@@ -1179,7 +1177,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                 ),
               ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
               child: Material(
                 color: Colors.transparent,
                 elevation: 20.0,
@@ -1210,7 +1208,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                           context.goNamed(
                             'HomePage',
                             extra: <String, dynamic>{
-                              kTransitionInfoKey: TransitionInfo(
+                              kTransitionInfoKey: const TransitionInfo(
                                 hasTransition: true,
                                 transitionType: PageTransitionType.fade,
                                 duration: Duration(milliseconds: 0),
@@ -1233,7 +1231,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                           context.pushNamed(
                             'pesquisa',
                             extra: <String, dynamic>{
-                              kTransitionInfoKey: TransitionInfo(
+                              kTransitionInfoKey: const TransitionInfo(
                                 hasTransition: true,
                                 transitionType: PageTransitionType.fade,
                                 duration: Duration(milliseconds: 0),
@@ -1248,16 +1246,16 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                         ),
                       ),
                       Align(
-                        alignment: AlignmentDirectional(0.00, 0.00),
+                        alignment: const AlignmentDirectional(0.00, 0.00),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Align(
-                              alignment: AlignmentDirectional(0.00, 0.00),
+                              alignment: const AlignmentDirectional(0.00, 0.00),
                               child: Stack(
                                 children: [
                                   Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                    alignment: const AlignmentDirectional(0.00, 0.00),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
                                       focusColor: Colors.transparent,
@@ -1267,7 +1265,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                         context.pushNamed(
                                           'meucarrinho',
                                           extra: <String, dynamic>{
-                                            kTransitionInfoKey: TransitionInfo(
+                                            kTransitionInfoKey: const TransitionInfo(
                                               hasTransition: true,
                                               transitionType:
                                                   PageTransitionType.fade,
@@ -1275,7 +1273,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                           },
                                         );
                                       },
-                                      child: Icon(
+                                      child: const Icon(
                                         Icons.local_grocery_store,
                                         color: Color(0xFFE46D1F),
                                         size: 40.0,
@@ -1284,9 +1282,9 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                   ),
                                   Align(
                                     alignment:
-                                        AlignmentDirectional(1.00, -1.00),
+                                        const AlignmentDirectional(1.00, -1.00),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           30.0, 0.0, 0.0, 0.0),
                                       child: badges.Badge(
                                         badgeContent: Text(
@@ -1305,9 +1303,9 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                                         ),
                                         showBadge: true,
                                         shape: badges.BadgeShape.circle,
-                                        badgeColor: Color(0xFF10DA26),
+                                        badgeColor: const Color(0xFF10DA26),
                                         elevation: 4.0,
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             8.0, 8.0, 8.0, 8.0),
                                         position: badges.BadgePosition.topEnd(),
                                         animationType:
@@ -1337,7 +1335,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                           context.pushNamed(
                             'MeusPedidos',
                             extra: <String, dynamic>{
-                              kTransitionInfoKey: TransitionInfo(
+                              kTransitionInfoKey: const TransitionInfo(
                                 hasTransition: true,
                                 transitionType: PageTransitionType.fade,
                                 duration: Duration(milliseconds: 0),
@@ -1360,7 +1358,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                           context.pushNamed(
                             'Perfil',
                             extra: <String, dynamic>{
-                              kTransitionInfoKey: TransitionInfo(
+                              kTransitionInfoKey: const TransitionInfo(
                                 hasTransition: true,
                                 transitionType: PageTransitionType.fade,
                                 duration: Duration(milliseconds: 0),
