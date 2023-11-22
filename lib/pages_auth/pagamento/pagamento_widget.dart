@@ -290,7 +290,7 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                               children: [
                                 SelectionArea(
                                     child: Text(
-                                  'Hello World',
+                                  FFAppState().pagPixRef.qrcode,
                                   style:
                                       FlutterFlowTheme.of(context).bodyMedium,
                                 )),
