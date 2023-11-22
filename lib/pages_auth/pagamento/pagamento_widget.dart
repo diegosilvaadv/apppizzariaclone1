@@ -110,7 +110,7 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Readex Pro',
-                                  fontSize: 22.0,
+                                  fontSize: 30.0,
                                   fontWeight: FontWeight.w600,
                                 ),
                           ),
@@ -318,7 +318,7 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                               ),
                             ),
                           ),
-                        if (FFAppState().pagPix.status != 'approved')
+                        if (FFAppState().pagPix.status == 'approved')
                           Align(
                             alignment: AlignmentDirectional(0.00, 0.00),
                             child: Padding(
