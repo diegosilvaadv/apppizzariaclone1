@@ -35,3 +35,9 @@ String imgdeco() {
   List<int> bytes = base64.decode(base64Image.split(',').last);
   return String.fromCharCodes(bytes);
 }
+
+String decodificarIMGBase64(String code) {
+  // decode "code" into base64
+  if (code == null) return '';
+  return utf8.decode(base64.decode(code));
+}
