@@ -51,6 +51,91 @@ class BuscarCEPCall {
       );
 }
 
+class PixMercadoPagoCall {
+  static Future<ApiCallResponse> call({
+    String? chavealetoria = '',
+    String? productTitle = '',
+    String? email = '',
+    String? firstName = '',
+    String? lastName = '',
+    String? identificationType = '',
+    String? numberCpf = '',
+    double? amount,
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "transaction_amount": ${amount},
+  "payment_method_id": "pix",
+  "payer": {
+    "email": "${email}",
+    "first_name": "${firstName}",
+    "last_name": "${lastName}",
+    "identification": {
+      "type": "${identificationType}",
+      "number": "${numberCpf}"
+    }
+  }
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Pix Mercado Pago',
+      apiUrl: 'https://api.mercadopago.com/v1/payments',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Idempotency-Key': '0d5020ed-1af6-469c-ae06-${chavealetoria}',
+        'Authorization':
+            'Bearer APP_USR-2540313967326267-111909-94d7cfcc16413329acb45f48567519c7-433297459',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+
+  static dynamic idStutus(dynamic response) => getJsonField(
+        response,
+        r'''$.id''',
+      );
+  static dynamic qrcode(dynamic response) => getJsonField(
+        response,
+        r'''$.point_of_interaction.transaction_data.qr_code_base64''',
+      );
+  static dynamic chavepix(dynamic response) => getJsonField(
+        response,
+        r'''$.point_of_interaction.transaction_data.qr_code''',
+      );
+}
+
+class StatusPixCall {
+  static Future<ApiCallResponse> call({
+    int? idPix,
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'Status Pix',
+      apiUrl: 'https://api.mercadopago.com/v1/payments/${idPix}',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization':
+            'Bearer APP_USR-2540313967326267-111909-94d7cfcc16413329acb45f48567519c7-433297459',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+
+  static dynamic statusPag(dynamic response) => getJsonField(
+        response,
+        r'''$.status''',
+      );
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;

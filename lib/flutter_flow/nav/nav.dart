@@ -113,7 +113,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'pagamento',
           path: '/pagamento',
-          builder: (context, params) => PagamentoWidget(),
+          builder: (context, params) => PagamentoWidget(
+            status: params.getParam('status', ParamType.JSON),
+          ),
         ),
         FFRoute(
           name: 'MeusPedidos',

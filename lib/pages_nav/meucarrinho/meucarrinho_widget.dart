@@ -1,4 +1,5 @@
 import '/auth/supabase_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
 import '/componets/definir_pagamento/definir_pagamento_widget.dart';
@@ -6,6 +7,8 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/backend/schema/structs/index.dart';
+import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -817,92 +820,95 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                           );
                         },
                       ),
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                if (FFAppState().statusPAG == 'Nenhum')
-                                  Text(
-                                    'Escolher Forma de Pagamento',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
+                      if (FFAppState().NumCarrinho != 0)
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 30.0, 0.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  if (FFAppState().statusPAG == 'Nenhum')
+                                    Text(
+                                      'Escolher Forma de Pagamento',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Readex Pro',
+                                            fontSize: 18.0,
+                                          ),
+                                    ),
+                                  if (FFAppState().statusPAG != 'Nenhum')
+                                    Text(
+                                      'Forma de Pagamento: ${FFAppState().statusPAG}',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Readex Pro',
+                                            fontSize: 18.0,
+                                          ),
+                                    ),
+                                ],
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    6.0, 0.0, 0.0, 0.0),
+                                child: FFButtonWidget(
+                                  onPressed: () async {
+                                    await showModalBottomSheet(
+                                      isScrollControlled: true,
+                                      backgroundColor: Colors.transparent,
+                                      enableDrag: false,
+                                      context: context,
+                                      builder: (context) {
+                                        return GestureDetector(
+                                          onTap: () => _model
+                                                  .unfocusNode.canRequestFocus
+                                              ? FocusScope.of(context)
+                                                  .requestFocus(
+                                                      _model.unfocusNode)
+                                              : FocusScope.of(context)
+                                                  .unfocus(),
+                                          child: Padding(
+                                            padding: MediaQuery.viewInsetsOf(
+                                                context),
+                                            child: DefinirPagamentoWidget(),
+                                          ),
+                                        );
+                                      },
+                                    ).then((value) => safeSetState(() {}));
+                                  },
+                                  text: 'Definir',
+                                  options: FFButtonOptions(
+                                    height: 35.0,
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        10.0, 0.0, 10.0, 0.0),
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    color:
+                                        FlutterFlowTheme.of(context).tertiary,
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
                                         .override(
                                           fontFamily: 'Readex Pro',
-                                          fontSize: 18.0,
+                                          color: Colors.white,
                                         ),
+                                    elevation: 3.0,
+                                    borderSide: BorderSide(
+                                      color: Colors.transparent,
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
                                   ),
-                                if (FFAppState().statusPAG != 'Nenhum')
-                                  Text(
-                                    'Forma de Pagamento: ${FFAppState().statusPAG}',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Readex Pro',
-                                          fontSize: 18.0,
-                                        ),
-                                  ),
-                              ],
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  6.0, 0.0, 0.0, 0.0),
-                              child: FFButtonWidget(
-                                onPressed: () async {
-                                  await showModalBottomSheet(
-                                    isScrollControlled: true,
-                                    backgroundColor: Colors.transparent,
-                                    enableDrag: false,
-                                    context: context,
-                                    builder: (context) {
-                                      return GestureDetector(
-                                        onTap: () => _model
-                                                .unfocusNode.canRequestFocus
-                                            ? FocusScope.of(context)
-                                                .requestFocus(
-                                                    _model.unfocusNode)
-                                            : FocusScope.of(context).unfocus(),
-                                        child: Padding(
-                                          padding:
-                                              MediaQuery.viewInsetsOf(context),
-                                          child: DefinirPagamentoWidget(),
-                                        ),
-                                      );
-                                    },
-                                  ).then((value) => safeSetState(() {}));
-                                },
-                                text: 'Definir',
-                                options: FFButtonOptions(
-                                  height: 30.0,
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 0.0, 10.0, 0.0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  color: FlutterFlowTheme.of(context).tertiary,
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .titleSmall
-                                      .override(
-                                        fontFamily: 'Readex Pro',
-                                        color: Colors.white,
-                                      ),
-                                  elevation: 3.0,
-                                  borderSide: BorderSide(
-                                    color: Colors.transparent,
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                               ),
-                            ),
-                          ],
-                        ).animateOnPageLoad(
-                            animationsMap['rowOnPageLoadAnimation2']!),
-                      ),
+                            ],
+                          ).animateOnPageLoad(
+                              animationsMap['rowOnPageLoadAnimation2']!),
+                        ),
                       if (FFAppState().NumCarrinho == 0)
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
@@ -981,49 +987,190 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                             color: Color(0xFF10DA26),
                             borderRadius: BorderRadius.circular(12.0),
                           ),
-                          child: FFButtonWidget(
-                            onPressed: () async {
-                              await StatusDosPedidosTable().insert({
-                                'created_at': supaSerialize<DateTime>(
-                                    getCurrentTimestamp),
-                                'status': 'Não pago',
-                                'user_id': currentUserUid,
-                                'preco_total': FFAppState().TotalPrice + 10,
-                              });
-                              await Future.delayed(
-                                  const Duration(milliseconds: 2000));
-
-                              context.pushNamed(
-                                'pagamento',
-                                extra: <String, dynamic>{
-                                  kTransitionInfoKey: TransitionInfo(
-                                    hasTransition: true,
-                                    transitionType: PageTransitionType.fade,
+                          child: FutureBuilder<List<UsersRow>>(
+                            future: UsersTable().querySingleRow(
+                              queryFn: (q) => q.eq(
+                                'user_id',
+                                currentUserUid,
+                              ),
+                            ),
+                            builder: (context, snapshot) {
+                              // Customize what your widget looks like when it's loading.
+                              if (!snapshot.hasData) {
+                                return Center(
+                                  child: SizedBox(
+                                    width: 15.0,
+                                    height: 15.0,
+                                    child: SpinKitChasingDots(
+                                      color: Color(0xFFE46D1F),
+                                      size: 15.0,
+                                    ),
                                   ),
+                                );
+                              }
+                              List<UsersRow> buttonUsersRowList =
+                                  snapshot.data!;
+                              final buttonUsersRow =
+                                  buttonUsersRowList.isNotEmpty
+                                      ? buttonUsersRowList.first
+                                      : null;
+                              return FFButtonWidget(
+                                onPressed: () async {
+                                  if (FFAppState().statusPAG == 'pix') {
+                                    _model.resultadoPagPix =
+                                        await PixMercadoPagoCall.call(
+                                      chavealetoria: random_data.randomString(
+                                        10,
+                                        12,
+                                        false,
+                                        false,
+                                        true,
+                                      ),
+                                      productTitle: 'teste produto',
+                                      email: currentUserEmail,
+                                      firstName: buttonUsersRow?.nome,
+                                      lastName: buttonUsersRow?.nome,
+                                      amount: 1.0,
+                                    );
+                                    if ((_model.resultadoPagPix?.succeeded ??
+                                        true)) {
+                                      await StatusDosPedidosTable().insert({
+                                        'created_at': supaSerialize<DateTime>(
+                                            getCurrentTimestamp),
+                                        'status': 'Não pago',
+                                        'user_id': currentUserUid,
+                                        'preco_total':
+                                            FFAppState().TotalPrice + 10,
+                                      });
+                                      setState(() {
+                                        FFAppState().pagPix = PagPIXStruct(
+                                          chavepix: PixMercadoPagoCall.chavepix(
+                                            (_model.resultadoPagPix?.jsonBody ??
+                                                ''),
+                                          ).toString(),
+                                          idPedido: PixMercadoPagoCall.idStutus(
+                                            (_model.resultadoPagPix?.jsonBody ??
+                                                ''),
+                                          ),
+                                        );
+                                      });
+                                      await Future.delayed(
+                                          const Duration(milliseconds: 2000));
+
+                                      context.pushNamed(
+                                        'pagamento',
+                                        queryParameters: {
+                                          'status': serializeParam(
+                                            ((_model.resultadoPagPix?.jsonBody ??
+                                                                '') !=
+                                                            null &&
+                                                        (_model.resultadoPagPix
+                                                                    ?.jsonBody ??
+                                                                '') !=
+                                                            ''
+                                                    ? PagPIXStruct.fromMap(
+                                                        (_model.resultadoPagPix
+                                                                ?.jsonBody ??
+                                                            ''))
+                                                    : null)
+                                                ?.toMap(),
+                                            ParamType.JSON,
+                                          ),
+                                        }.withoutNulls,
+                                        extra: <String, dynamic>{
+                                          kTransitionInfoKey: TransitionInfo(
+                                            hasTransition: true,
+                                            transitionType:
+                                                PageTransitionType.fade,
+                                          ),
+                                        },
+                                      );
+                                    } else {
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
+                                        SnackBar(
+                                          content: Text(
+                                            'ERRO PIX',
+                                            style: TextStyle(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                            ),
+                                          ),
+                                          duration:
+                                              Duration(milliseconds: 4000),
+                                          backgroundColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .secondary,
+                                        ),
+                                      );
+                                    }
+                                  } else if (FFAppState().statusPAG ==
+                                      'cartao') {
+                                    await StatusDosPedidosTable().insert({
+                                      'created_at': supaSerialize<DateTime>(
+                                          getCurrentTimestamp),
+                                      'status': 'Não pago',
+                                      'user_id': currentUserUid,
+                                      'preco_total':
+                                          FFAppState().TotalPrice + 10,
+                                    });
+                                    await Future.delayed(
+                                        const Duration(milliseconds: 2000));
+
+                                    context.pushNamed(
+                                      'pagamento',
+                                      extra: <String, dynamic>{
+                                        kTransitionInfoKey: TransitionInfo(
+                                          hasTransition: true,
+                                          transitionType:
+                                              PageTransitionType.fade,
+                                        ),
+                                      },
+                                    );
+                                  } else {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text(
+                                          'Escolha a forma de pagamento!',
+                                          style: TextStyle(
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                          ),
+                                        ),
+                                        duration: Duration(milliseconds: 4000),
+                                        backgroundColor:
+                                            FlutterFlowTheme.of(context)
+                                                .secondary,
+                                      ),
+                                    );
+                                  }
+
+                                  setState(() {});
                                 },
+                                text: 'IR PARA PAGAMENTO',
+                                options: FFButtonOptions(
+                                  height: 40.0,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      10.0, 0.0, 10.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  color: Color(0xFF10DA26),
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        fontFamily: 'Readex Pro',
+                                        color: Colors.white,
+                                      ),
+                                  elevation: 3.0,
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
+                                    width: 1.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
                               );
                             },
-                            text: 'IR PARA PAGAMENTO',
-                            options: FFButtonOptions(
-                              height: 40.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  10.0, 0.0, 10.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              color: Color(0xFF10DA26),
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .titleSmall
-                                  .override(
-                                    fontFamily: 'Readex Pro',
-                                    color: Colors.white,
-                                  ),
-                              elevation: 3.0,
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
                           ),
                         ),
                       ),

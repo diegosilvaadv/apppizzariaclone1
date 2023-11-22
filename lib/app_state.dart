@@ -172,6 +172,16 @@ class FFAppState extends ChangeNotifier {
   set statusPAG(String _value) {
     _statusPAG = _value;
   }
+
+  PagPIXStruct _pagPix = PagPIXStruct();
+  PagPIXStruct get pagPix => _pagPix;
+  set pagPix(PagPIXStruct _value) {
+    _pagPix = _value;
+  }
+
+  void updatePagPixStruct(Function(PagPIXStruct) updateFn) {
+    updateFn(_pagPix);
+  }
 }
 
 LatLng? _latLngFromString(String? val) {
