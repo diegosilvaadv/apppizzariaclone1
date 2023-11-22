@@ -146,6 +146,7 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Readex Pro',
+                                  fontSize: 15.0,
                                   fontWeight: FontWeight.w300,
                                 ),
                           ),
@@ -288,12 +289,13 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
-                                SelectionArea(
-                                    child: Text(
+                                Lottie.network(
                                   FFAppState().pagPixRef.qrcode,
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
-                                )),
+                                  width: 150.0,
+                                  height: 130.0,
+                                  fit: BoxFit.cover,
+                                  animate: true,
+                                ),
                               ],
                             ),
                           ),
