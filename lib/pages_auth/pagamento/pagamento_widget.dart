@@ -288,15 +288,12 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  child: Image.network(
-                                    '${FFAppState().pagPixRef.hasQrcode().toString()}',
-                                    width: 300.0,
-                                    height: 200.0,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
+                                SelectionArea(
+                                    child: Text(
+                                  'Hello World',
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
+                                )),
                               ],
                             ),
                           ),
