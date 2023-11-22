@@ -285,7 +285,7 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                             ],
                           ),
                         ),
-                        if (FFAppState().pagPix.status == 'approved')
+                        if (FFAppState().pagPix.status != 'approved')
                           Align(
                             alignment: AlignmentDirectional(0.00, 0.00),
                             child: Padding(
