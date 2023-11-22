@@ -108,6 +108,10 @@ class PixMercadoPagoCall {
         response,
         r'''$.point_of_interaction.transaction_data.qr_code''',
       );
+  static dynamic url(dynamic response) => getJsonField(
+        response,
+        r'''$.point_of_interaction.transaction_data.ticket_url''',
+      );
 }
 
 class StatusPixCall {
