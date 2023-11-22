@@ -17,12 +17,7 @@ import 'pagamento_model.dart';
 export 'pagamento_model.dart';
 
 class PagamentoWidget extends StatefulWidget {
-  const PagamentoWidget({
-    Key? key,
-    this.status,
-  }) : super(key: key);
-
-  final dynamic status;
+  const PagamentoWidget({Key? key}) : super(key: key);
 
   @override
   _PagamentoWidgetState createState() => _PagamentoWidgetState();
@@ -39,7 +34,7 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
     _model = createModel(context, () => PagamentoModel());
 
     _model.textController ??=
-        TextEditingController(text: FFAppState().pagPix.chavepix);
+        TextEditingController(text: FFAppState().pagPixRef.chavepix);
     _model.textFieldFocusNode ??= FocusNode();
   }
 
@@ -75,7 +70,7 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
           child: FutureBuilder<ApiCallResponse>(
             future: (_model.apiRequestCompleter ??= Completer<ApiCallResponse>()
                   ..complete(StatusPixCall.call(
-                    idPix: FFAppState().pagPix.idPedido,
+                    idPix: FFAppState().pagPixRef.idPedido,
                   )))
                 .future,
             builder: (context, snapshot) {
@@ -160,199 +155,170 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                       thickness: 1.0,
                       color: FlutterFlowTheme.of(context).secondaryText,
                     ),
-                    Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              10.0, 10.0, 10.0, 0.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Text(
-                                'Realizar Pagamento Via cheve Pix',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Readex Pro',
-                                      fontSize: 18.0,
-                                    ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              10.0, 10.0, 10.0, 0.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Expanded(
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      8.0, 0.0, 8.0, 0.0),
-                                  child: TextFormField(
-                                    controller: _model.textController,
-                                    focusNode: _model.textFieldFocusNode,
-                                    autofocus: true,
-                                    readOnly: true,
-                                    obscureText: false,
-                                    decoration: InputDecoration(
-                                      labelText: 'chavePix',
-                                      labelStyle: FlutterFlowTheme.of(context)
-                                          .labelMedium,
-                                      hintStyle: FlutterFlowTheme.of(context)
-                                          .labelMedium,
-                                      enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                          width: 1.0,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
+                    if (FFAppState().statusPAG == 'pix')
+                      Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                10.0, 10.0, 10.0, 0.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Text(
+                                  'Realizar Pagamento Via cheve Pix',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Readex Pro',
+                                        fontSize: 18.0,
                                       ),
-                                      focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
-                                          width: 1.0,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      errorBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .error,
-                                          width: 1.0,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      focusedErrorBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .error,
-                                          width: 1.0,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      filled: true,
-                                      fillColor: FlutterFlowTheme.of(context)
-                                          .primaryBackground,
-                                    ),
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
-                                    maxLines: 3,
-                                    validator: _model.textControllerValidator
-                                        .asValidator(context),
-                                  ),
                                 ),
-                              ),
-                              InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  await Clipboard.setData(ClipboardData(
-                                      text: _model.textController.text));
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
-                                      content: Text(
-                                        'Copiado!',
-                                        style: TextStyle(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryText,
-                                        ),
-                                      ),
-                                      duration: Duration(milliseconds: 4000),
-                                      backgroundColor:
-                                          FlutterFlowTheme.of(context)
-                                              .secondary,
-                                    ),
-                                  );
-                                },
-                                child: Icon(
-                                  Icons.content_copy,
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryText,
-                                  size: 35.0,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        if (FFAppState().pagPix.status != 'approved')
-                          Align(
-                            alignment: AlignmentDirectional(0.00, 0.00),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  20.0, 20.0, 20.0, 20.0),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context).tertiary,
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 10.0, 10.0, 10.0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        'Pagamento Pendente ...',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Readex Pro',
-                                              fontSize: 20.0,
-                                            ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
+                              ],
                             ),
                           ),
-                        if (FFAppState().pagPix.status == 'approved')
-                          Align(
-                            alignment: AlignmentDirectional(0.00, 0.00),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  20.0, 20.0, 20.0, 20.0),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  color: Color(0xFF10DA26),
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 10.0, 10.0, 10.0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        'Pagamento Realizado com Sucesso!',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Readex Pro',
-                                              fontSize: 18.0,
-                                            ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                10.0, 10.0, 10.0, 0.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Expanded(
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        8.0, 0.0, 8.0, 0.0),
+                                    child: TextFormField(
+                                      controller: _model.textController,
+                                      focusNode: _model.textFieldFocusNode,
+                                      autofocus: true,
+                                      readOnly: true,
+                                      obscureText: false,
+                                      decoration: InputDecoration(
+                                        labelText: 'chavePix',
+                                        labelStyle: FlutterFlowTheme.of(context)
+                                            .labelMedium,
+                                        hintStyle: FlutterFlowTheme.of(context)
+                                            .labelMedium,
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryText,
+                                            width: 1.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                            width: 1.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
+                                        errorBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context)
+                                                .error,
+                                            width: 1.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
+                                        focusedErrorBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context)
+                                                .error,
+                                            width: 1.0,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
+                                        filled: true,
+                                        fillColor: FlutterFlowTheme.of(context)
+                                            .primaryBackground,
                                       ),
-                                    ],
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium,
+                                      maxLines: 3,
+                                      validator: _model.textControllerValidator
+                                          .asValidator(context),
+                                    ),
                                   ),
                                 ),
-                              ),
+                                InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    await Clipboard.setData(ClipboardData(
+                                        text: _model.textController.text));
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text(
+                                          'Copiado!',
+                                          style: TextStyle(
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                          ),
+                                        ),
+                                        duration: Duration(milliseconds: 4000),
+                                        backgroundColor:
+                                            FlutterFlowTheme.of(context)
+                                                .secondary,
+                                      ),
+                                    );
+                                  },
+                                  child: Icon(
+                                    Icons.content_copy,
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                    size: 35.0,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                      ],
-                    ),
+                          if (FFAppState().pagPixRef.status != 'approved')
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10.0, 20.0, 10.0, 20.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      color:
+                                          FlutterFlowTheme.of(context).tertiary,
+                                      borderRadius: BorderRadius.circular(6.0),
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          20.0, 10.0, 20.0, 10.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Text(
+                                            'Pagamento Pendente...',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Readex Pro',
+                                                  fontSize: 20.0,
+                                                ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                        ],
+                      ),
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(
                           10.0, 10.0, 10.0, 10.0),
@@ -608,8 +574,10 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                           Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
-                              if (FFAppState().pagPix.status != 'approved')
-                                FutureBuilder<List<StatusDosPedidosRow>>(
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 10.0, 0.0, 0.0),
+                                child: FutureBuilder<List<StatusDosPedidosRow>>(
                                   future:
                                       StatusDosPedidosTable().querySingleRow(
                                     queryFn: (q) => q
@@ -646,8 +614,12 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                             : null;
                                     return FFButtonWidget(
                                       onPressed: () async {
+                                        setState(() =>
+                                            _model.apiRequestCompleter = null);
+                                        await _model
+                                            .waitForApiRequestCompleted();
                                         setState(() {
-                                          FFAppState().updatePagPixStruct(
+                                          FFAppState().updatePagPixRefStruct(
                                             (e) => e
                                               ..status = StatusPixCall.status(
                                                 columnStatusPixResponse
@@ -655,80 +627,10 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                               ).toString(),
                                           );
                                         });
-                                        setState(() =>
-                                            _model.apiRequestCompleter = null);
-                                        await _model
-                                            .waitForApiRequestCompleted();
-                                      },
-                                      text: 'Atualizar Pagamento',
-                                      options: FFButtonOptions(
-                                        height: 40.0,
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            24.0, 0.0, 24.0, 0.0),
-                                        iconPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
-                                                0.0, 0.0, 0.0, 0.0),
-                                        color: Color(0xFFE46D1F),
-                                        textStyle: FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .override(
-                                              fontFamily: 'Readex Pro',
-                                              color: Colors.white,
-                                            ),
-                                        elevation: 3.0,
-                                        borderSide: BorderSide(
-                                          color: Colors.transparent,
-                                          width: 1.0,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                    );
-                                  },
-                                ),
-                              if (FFAppState().pagPix.status == 'approved')
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 10.0, 0.0, 0.0),
-                                  child:
-                                      FutureBuilder<List<StatusDosPedidosRow>>(
-                                    future:
-                                        StatusDosPedidosTable().querySingleRow(
-                                      queryFn: (q) => q
-                                          .eq(
-                                            'user_id',
-                                            currentUserUid,
-                                          )
-                                          .eq(
-                                            'status',
-                                            'Não pago',
-                                          ),
-                                    ),
-                                    builder: (context, snapshot) {
-                                      // Customize what your widget looks like when it's loading.
-                                      if (!snapshot.hasData) {
-                                        return Center(
-                                          child: SizedBox(
-                                            width: 15.0,
-                                            height: 15.0,
-                                            child: SpinKitChasingDots(
-                                              color: Color(0xFFE46D1F),
-                                              size: 15.0,
-                                            ),
-                                          ),
-                                        );
-                                      }
-                                      List<StatusDosPedidosRow>
-                                          buttonStatusDosPedidosRowList =
-                                          snapshot.data!;
-                                      final buttonStatusDosPedidosRow =
-                                          buttonStatusDosPedidosRowList
-                                                  .isNotEmpty
-                                              ? buttonStatusDosPedidosRowList
-                                                  .first
-                                              : null;
-                                      return FFButtonWidget(
-                                        onPressed: () async {
+                                        await Future.delayed(
+                                            const Duration(milliseconds: 5000));
+                                        if (FFAppState().pagPixRef.status ==
+                                            'approved') {
                                           if (FFAppState().pedidosCar.length >=
                                               1) {
                                             await StatusDosPedidosTable()
@@ -825,36 +727,55 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                           } else {
                                             return;
                                           }
-                                        },
-                                        text: 'Continuar',
-                                        options: FFButtonOptions(
-                                          height: 40.0,
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  24.0, 0.0, 24.0, 0.0),
-                                          iconPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 0.0),
-                                          color: Color(0xFF10DA26),
-                                          textStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .titleSmall
-                                                  .override(
-                                                    fontFamily: 'Readex Pro',
-                                                    color: Colors.white,
-                                                  ),
-                                          elevation: 3.0,
-                                          borderSide: BorderSide(
-                                            color: Colors.transparent,
-                                            width: 1.0,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
+                                        } else {
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(
+                                            SnackBar(
+                                              content: Text(
+                                                'Pagamento ainda não processado!',
+                                                style: TextStyle(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
+                                                ),
+                                              ),
+                                              duration:
+                                                  Duration(milliseconds: 4000),
+                                              backgroundColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondary,
+                                            ),
+                                          );
+                                        }
+                                      },
+                                      text: 'Atualizar Pagamento',
+                                      options: FFButtonOptions(
+                                        height: 40.0,
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            24.0, 0.0, 24.0, 0.0),
+                                        iconPadding:
+                                            EdgeInsetsDirectional.fromSTEB(
+                                                0.0, 0.0, 0.0, 0.0),
+                                        color: FlutterFlowTheme.of(context)
+                                            .tertiary,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .override(
+                                              fontFamily: 'Readex Pro',
+                                              color: Colors.white,
+                                            ),
+                                        elevation: 3.0,
+                                        borderSide: BorderSide(
+                                          color: Colors.transparent,
+                                          width: 1.0,
                                         ),
-                                      );
-                                    },
-                                  ),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                    );
+                                  },
                                 ),
+                              ),
                             ],
                           ),
                         ],

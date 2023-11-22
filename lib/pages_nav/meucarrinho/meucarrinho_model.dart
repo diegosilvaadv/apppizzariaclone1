@@ -7,7 +7,6 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/backend/schema/structs/index.dart';
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'meucarrinho_widget.dart' show MeucarrinhoWidget;
 import 'package:badges/badges.dart' as badges;

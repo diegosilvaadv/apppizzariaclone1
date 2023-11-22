@@ -5,8 +5,8 @@ import '/backend/schema/util/schema_util.dart';
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
-class PagPIXStruct extends BaseStruct {
-  PagPIXStruct({
+class PixPagStruct extends BaseStruct {
+  PixPagStruct({
     String? status,
     String? chavepix,
     int? idPedido,
@@ -33,14 +33,14 @@ class PagPIXStruct extends BaseStruct {
   void incrementIdPedido(int amount) => _idPedido = idPedido + amount;
   bool hasIdPedido() => _idPedido != null;
 
-  static PagPIXStruct fromMap(Map<String, dynamic> data) => PagPIXStruct(
+  static PixPagStruct fromMap(Map<String, dynamic> data) => PixPagStruct(
         status: data['status'] as String?,
         chavepix: data['chavepix'] as String?,
         idPedido: castToType<int>(data['id_pedido']),
       );
 
-  static PagPIXStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic> ? PagPIXStruct.fromMap(data) : null;
+  static PixPagStruct? maybeFromMap(dynamic data) =>
+      data is Map<String, dynamic> ? PixPagStruct.fromMap(data) : null;
 
   Map<String, dynamic> toMap() => {
         'status': _status,
@@ -64,8 +64,8 @@ class PagPIXStruct extends BaseStruct {
         ),
       }.withoutNulls;
 
-  static PagPIXStruct fromSerializableMap(Map<String, dynamic> data) =>
-      PagPIXStruct(
+  static PixPagStruct fromSerializableMap(Map<String, dynamic> data) =>
+      PixPagStruct(
         status: deserializeParam(
           data['status'],
           ParamType.String,
@@ -84,11 +84,11 @@ class PagPIXStruct extends BaseStruct {
       );
 
   @override
-  String toString() => 'PagPIXStruct(${toMap()})';
+  String toString() => 'PixPagStruct(${toMap()})';
 
   @override
   bool operator ==(Object other) {
-    return other is PagPIXStruct &&
+    return other is PixPagStruct &&
         status == other.status &&
         chavepix == other.chavepix &&
         idPedido == other.idPedido;
@@ -98,12 +98,12 @@ class PagPIXStruct extends BaseStruct {
   int get hashCode => const ListEquality().hash([status, chavepix, idPedido]);
 }
 
-PagPIXStruct createPagPIXStruct({
+PixPagStruct createPixPagStruct({
   String? status,
   String? chavepix,
   int? idPedido,
 }) =>
-    PagPIXStruct(
+    PixPagStruct(
       status: status,
       chavepix: chavepix,
       idPedido: idPedido,

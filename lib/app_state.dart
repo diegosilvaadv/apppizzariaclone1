@@ -173,14 +173,14 @@ class FFAppState extends ChangeNotifier {
     _statusPAG = _value;
   }
 
-  PagPIXStruct _pagPix = PagPIXStruct();
-  PagPIXStruct get pagPix => _pagPix;
-  set pagPix(PagPIXStruct _value) {
-    _pagPix = _value;
+  PixPagStruct _pagPixRef = PixPagStruct();
+  PixPagStruct get pagPixRef => _pagPixRef;
+  set pagPixRef(PixPagStruct _value) {
+    _pagPixRef = _value;
   }
 
-  void updatePagPixStruct(Function(PagPIXStruct) updateFn) {
-    updateFn(_pagPix);
+  void updatePagPixRefStruct(Function(PixPagStruct) updateFn) {
+    updateFn(_pagPixRef);
   }
 }
 
