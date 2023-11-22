@@ -172,7 +172,7 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Readex Pro',
-                                        fontSize: 18.0,
+                                        fontSize: 20.0,
                                       ),
                                 ),
                               ],
@@ -291,7 +291,7 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                 ClipRRect(
                                   borderRadius: BorderRadius.circular(8.0),
                                   child: Image.network(
-                                    '${FFAppState().pagPixRef.qrcode}',
+                                    '${FFAppState().pagPixRef.hasQrcode().toString()}',
                                     width: 300.0,
                                     height: 200.0,
                                     fit: BoxFit.cover,
