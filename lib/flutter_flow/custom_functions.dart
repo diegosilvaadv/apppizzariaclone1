@@ -26,9 +26,20 @@ String saudacao() {
   return 'Boa Noite, ';
 }
 
-String decodificarIMGBase64(String qrcode) {
-  // decode "qr code" into base64 and returns an "image"
-  List<int> bytes = utf8.encode(qrcode);
-  String base64Str = base64.encode(bytes);
-  return 'data:image/$qrcode;base64,$base64Str';
+String decodificarIMGBase64(
+  String dataimagepngbase64,
+  String qrcode,
+) {
+  // pegue o "data:image/png;base64" e o "qrcode" e decodifique
+// Decode the base64 image data
+  final bytes = base64.decode(dataimagepngbase64.split(',').last);
+
+  // If a QR code is provided, decode it
+  if (qrcode != null) {
+    final decodedQrCode = utf8.decode(base64.decode(qrcode));
+    print('Decoded QR code: $decodedQrCode');
+  }
+
+  // Return the decoded image data as a string
+  return utf8.decode(bytes);
 }
