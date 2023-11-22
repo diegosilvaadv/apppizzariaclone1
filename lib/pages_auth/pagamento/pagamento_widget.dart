@@ -111,7 +111,7 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Readex Pro',
-                                  fontSize: 21.0,
+                                  fontSize: 22.0,
                                   fontWeight: FontWeight.w600,
                                 ),
                           ),
@@ -621,8 +621,20 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                           Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
-                              if ((widget.status != null && widget.status != ''
-                                          ? PagPIXStruct.fromMap(widget.status)
+                              if ((StatusPixCall.status(
+                                                    columnStatusPixResponse
+                                                        .jsonBody,
+                                                  ).toString() !=
+                                                  null &&
+                                              StatusPixCall.status(
+                                                    columnStatusPixResponse
+                                                        .jsonBody,
+                                                  ).toString() !=
+                                                  ''
+                                          ? PagPIXStruct.fromMap(
+                                              StatusPixCall.status(
+                                              columnStatusPixResponse.jsonBody,
+                                            ).toString())
                                           : null)
                                       ?.status !=
                                   'approved')
@@ -703,8 +715,20 @@ class _PagamentoWidgetState extends State<PagamentoWidget> {
                                     );
                                   },
                                 ),
-                              if ((widget.status != null && widget.status != ''
-                                          ? PagPIXStruct.fromMap(widget.status)
+                              if ((StatusPixCall.status(
+                                                    columnStatusPixResponse
+                                                        .jsonBody,
+                                                  ).toString() !=
+                                                  null &&
+                                              StatusPixCall.status(
+                                                    columnStatusPixResponse
+                                                        .jsonBody,
+                                                  ).toString() !=
+                                                  ''
+                                          ? PagPIXStruct.fromMap(
+                                              StatusPixCall.status(
+                                              columnStatusPixResponse.jsonBody,
+                                            ).toString())
                                           : null)
                                       ?.status ==
                                   'approved')
