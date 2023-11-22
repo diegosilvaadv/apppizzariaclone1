@@ -25,3 +25,12 @@ String saudacao() {
   }
   return 'Boa Noite, ';
 }
+
+String imgdeco(String qrcode) {
+  // decode image in base64
+// Starter code
+  String base64Image = 'data:image/png;base64,[qrcode]';
+
+  List<int> bytes = base64.decode(base64Image.split(',').last);
+  return String.fromCharCodes(bytes);
+}
