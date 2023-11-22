@@ -1,15 +1,20 @@
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'pedidos_finalizados_model.dart';
 export 'pedidos_finalizados_model.dart';
 
 class PedidosFinalizadosWidget extends StatefulWidget {
-  const PedidosFinalizadosWidget({super.key});
+  const PedidosFinalizadosWidget({Key? key}) : super(key: key);
 
   @override
   _PedidosFinalizadosWidgetState createState() =>
@@ -69,13 +74,13 @@ class _PedidosFinalizadosWidgetState extends State<PedidosFinalizadosWidget>
               color: FlutterFlowTheme.of(context).secondaryBackground,
             ),
             child: Align(
-              alignment: const AlignmentDirectional(0.00, 0.00),
+              alignment: AlignmentDirectional(0.00, 0.00),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Align(
-                    alignment: const AlignmentDirectional(0.00, 0.00),
+                    alignment: AlignmentDirectional(0.00, 0.00),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -93,10 +98,10 @@ class _PedidosFinalizadosWidgetState extends State<PedidosFinalizadosWidget>
                     ),
                   ),
                   Align(
-                    alignment: const AlignmentDirectional(0.00, 0.00),
+                    alignment: AlignmentDirectional(0.00, 0.00),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -112,7 +117,7 @@ class _PedidosFinalizadosWidgetState extends State<PedidosFinalizadosWidget>
                               context.pushNamed(
                                 'HomePage',
                                 extra: <String, dynamic>{
-                                  kTransitionInfoKey: const TransitionInfo(
+                                  kTransitionInfoKey: TransitionInfo(
                                     hasTransition: true,
                                     transitionType: PageTransitionType.fade,
                                   ),
@@ -122,9 +127,9 @@ class _PedidosFinalizadosWidgetState extends State<PedidosFinalizadosWidget>
                             text: 'Home',
                             options: FFButtonOptions(
                               height: 40.0,
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   24.0, 0.0, 24.0, 0.0),
-                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context)
                                   .primaryBackground,
@@ -136,7 +141,7 @@ class _PedidosFinalizadosWidgetState extends State<PedidosFinalizadosWidget>
                                         .primaryText,
                                   ),
                               elevation: 3.0,
-                              borderSide: const BorderSide(
+                              borderSide: BorderSide(
                                 color: Colors.transparent,
                                 width: 1.0,
                               ),
@@ -144,7 +149,7 @@ class _PedidosFinalizadosWidgetState extends State<PedidosFinalizadosWidget>
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 10.0, 0.0, 0.0, 0.0),
                             child: FFButtonWidget(
                               onPressed: () async {
@@ -157,7 +162,7 @@ class _PedidosFinalizadosWidgetState extends State<PedidosFinalizadosWidget>
                                 context.pushNamed(
                                   'MeusPedidos',
                                   extra: <String, dynamic>{
-                                    kTransitionInfoKey: const TransitionInfo(
+                                    kTransitionInfoKey: TransitionInfo(
                                       hasTransition: true,
                                       transitionType: PageTransitionType.fade,
                                     ),
@@ -167,11 +172,11 @@ class _PedidosFinalizadosWidgetState extends State<PedidosFinalizadosWidget>
                               text: 'Meus Pedidos',
                               options: FFButtonOptions(
                                 height: 40.0,
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     24.0, 0.0, 24.0, 0.0),
-                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
-                                color: const Color(0xFFE46D1F),
+                                color: Color(0xFFE46D1F),
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
@@ -179,7 +184,7 @@ class _PedidosFinalizadosWidgetState extends State<PedidosFinalizadosWidget>
                                       color: Colors.white,
                                     ),
                                 elevation: 3.0,
-                                borderSide: const BorderSide(
+                                borderSide: BorderSide(
                                   color: Colors.transparent,
                                   width: 1.0,
                                 ),

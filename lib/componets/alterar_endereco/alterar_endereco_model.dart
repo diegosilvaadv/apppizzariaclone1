@@ -1,11 +1,19 @@
+import '/auth/supabase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
+import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
 import '/componets/alterar_endereco/alterar_endereco_widget.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'alterar_endereco_widget.dart' show AlterarEnderecoWidget;
 import 'dart:async';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class AlterarEnderecoModel extends FlutterFlowModel<AlterarEnderecoWidget> {
   ///  State fields for stateful widgets in this component.
@@ -64,13 +72,11 @@ class AlterarEnderecoModel extends FlutterFlowModel<AlterarEnderecoWidget> {
 
   /// Initialization and disposal methods.
 
-  @override
   void initState(BuildContext context) {
     numeroControllerValidator = _numeroControllerValidator;
     estadoControllerValidator = _estadoControllerValidator;
   }
 
-  @override
   void dispose() {
     expandableController.dispose();
     cepFocusNode?.dispose();
@@ -105,7 +111,7 @@ class AlterarEnderecoModel extends FlutterFlowModel<AlterarEnderecoWidget> {
   }) async {
     final stopwatch = Stopwatch()..start();
     while (true) {
-      await Future.delayed(const Duration(milliseconds: 50));
+      await Future.delayed(Duration(milliseconds: 50));
       final timeElapsed = stopwatch.elapsedMilliseconds;
       final requestComplete = requestCompleter?.isCompleted ?? false;
       if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {

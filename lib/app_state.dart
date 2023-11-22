@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '/backend/schema/structs/index.dart';
+import 'backend/api_requests/api_manager.dart';
+import 'backend/supabase/supabase.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 
@@ -50,15 +52,15 @@ class FFAppState extends ChangeNotifier {
 
   String _MenuCondicao = 'Monte sua Pizza';
   String get MenuCondicao => _MenuCondicao;
-  set MenuCondicao(String value) {
-    _MenuCondicao = value;
+  set MenuCondicao(String _value) {
+    _MenuCondicao = _value;
   }
 
   BordasRefStruct _bordasRef = BordasRefStruct.fromSerializableMap(
-      jsonDecode('{"nome_borda":"borda","preco_borda":"0"}'));
+      jsonDecode('{\"nome_borda\":\"borda\",\"preco_borda\":\"0\"}'));
   BordasRefStruct get bordasRef => _bordasRef;
-  set bordasRef(BordasRefStruct value) {
-    _bordasRef = value;
+  set bordasRef(BordasRefStruct _value) {
+    _bordasRef = _value;
   }
 
   void updateBordasRefStruct(Function(BordasRefStruct) updateFn) {
@@ -67,15 +69,15 @@ class FFAppState extends ChangeNotifier {
 
   int _quanty = 1;
   int get quanty => _quanty;
-  set quanty(int value) {
-    _quanty = value;
+  set quanty(int _value) {
+    _quanty = _value;
   }
 
   SaboresRefStruct _Sabores = SaboresRefStruct.fromSerializableMap(jsonDecode(
-      '{"NomeSabor1":"nome","NomeSabor2":"nome","NomeSabor3":"nome","NomeSabor4":"nome","PrecoSabor1":"0","PrecoSabor2":"0","PrecoSabor3":"0","PrecoSabor4":"0"}'));
+      '{\"NomeSabor1\":\"nome\",\"NomeSabor2\":\"nome\",\"NomeSabor3\":\"nome\",\"NomeSabor4\":\"nome\",\"PrecoSabor1\":\"0\",\"PrecoSabor2\":\"0\",\"PrecoSabor3\":\"0\",\"PrecoSabor4\":\"0\"}'));
   SaboresRefStruct get Sabores => _Sabores;
-  set Sabores(SaboresRefStruct value) {
-    _Sabores = value;
+  set Sabores(SaboresRefStruct _value) {
+    _Sabores = _value;
   }
 
   void updateSaboresStruct(Function(SaboresRefStruct) updateFn) {
@@ -84,81 +86,81 @@ class FFAppState extends ChangeNotifier {
 
   int _CondicaoGeral = 0;
   int get CondicaoGeral => _CondicaoGeral;
-  set CondicaoGeral(int value) {
-    _CondicaoGeral = value;
+  set CondicaoGeral(int _value) {
+    _CondicaoGeral = _value;
   }
 
   int _NumCarrinho = 0;
   int get NumCarrinho => _NumCarrinho;
-  set NumCarrinho(int value) {
-    _NumCarrinho = value;
-    prefs.setInt('ff_NumCarrinho', value);
+  set NumCarrinho(int _value) {
+    _NumCarrinho = _value;
+    prefs.setInt('ff_NumCarrinho', _value);
   }
 
   List<PedidosStruct> _pedidosCar = [];
   List<PedidosStruct> get pedidosCar => _pedidosCar;
-  set pedidosCar(List<PedidosStruct> value) {
-    _pedidosCar = value;
+  set pedidosCar(List<PedidosStruct> _value) {
+    _pedidosCar = _value;
     prefs.setStringList(
-        'ff_pedidosCar', value.map((x) => x.serialize()).toList());
+        'ff_pedidosCar', _value.map((x) => x.serialize()).toList());
   }
 
-  void addToPedidosCar(PedidosStruct value) {
-    _pedidosCar.add(value);
-    prefs.setStringList(
-        'ff_pedidosCar', _pedidosCar.map((x) => x.serialize()).toList());
-  }
-
-  void removeFromPedidosCar(PedidosStruct value) {
-    _pedidosCar.remove(value);
+  void addToPedidosCar(PedidosStruct _value) {
+    _pedidosCar.add(_value);
     prefs.setStringList(
         'ff_pedidosCar', _pedidosCar.map((x) => x.serialize()).toList());
   }
 
-  void removeAtIndexFromPedidosCar(int index) {
-    _pedidosCar.removeAt(index);
+  void removeFromPedidosCar(PedidosStruct _value) {
+    _pedidosCar.remove(_value);
+    prefs.setStringList(
+        'ff_pedidosCar', _pedidosCar.map((x) => x.serialize()).toList());
+  }
+
+  void removeAtIndexFromPedidosCar(int _index) {
+    _pedidosCar.removeAt(_index);
     prefs.setStringList(
         'ff_pedidosCar', _pedidosCar.map((x) => x.serialize()).toList());
   }
 
   void updatePedidosCarAtIndex(
-    int index,
+    int _index,
     PedidosStruct Function(PedidosStruct) updateFn,
   ) {
-    _pedidosCar[index] = updateFn(_pedidosCar[index]);
+    _pedidosCar[_index] = updateFn(_pedidosCar[_index]);
     prefs.setStringList(
         'ff_pedidosCar', _pedidosCar.map((x) => x.serialize()).toList());
   }
 
-  void insertAtIndexInPedidosCar(int index, PedidosStruct value) {
-    _pedidosCar.insert(index, value);
+  void insertAtIndexInPedidosCar(int _index, PedidosStruct _value) {
+    _pedidosCar.insert(_index, _value);
     prefs.setStringList(
         'ff_pedidosCar', _pedidosCar.map((x) => x.serialize()).toList());
   }
 
   int _CondicaoBordas = 0;
   int get CondicaoBordas => _CondicaoBordas;
-  set CondicaoBordas(int value) {
-    _CondicaoBordas = value;
+  set CondicaoBordas(int _value) {
+    _CondicaoBordas = _value;
   }
 
   double _TotalPrice = 0;
   double get TotalPrice => _TotalPrice;
-  set TotalPrice(double value) {
-    _TotalPrice = value;
-    prefs.setDouble('ff_TotalPrice', value);
+  set TotalPrice(double _value) {
+    _TotalPrice = _value;
+    prefs.setDouble('ff_TotalPrice', _value);
   }
 
   int _contador = -1;
   int get contador => _contador;
-  set contador(int value) {
-    _contador = value;
+  set contador(int _value) {
+    _contador = _value;
   }
 
   EnderecosStruct _enderecoRef = EnderecosStruct();
   EnderecosStruct get enderecoRef => _enderecoRef;
-  set enderecoRef(EnderecosStruct value) {
-    _enderecoRef = value;
+  set enderecoRef(EnderecosStruct _value) {
+    _enderecoRef = _value;
   }
 
   void updateEnderecoRefStruct(Function(EnderecosStruct) updateFn) {
@@ -167,14 +169,14 @@ class FFAppState extends ChangeNotifier {
 
   String _statusPAG = 'Nenhum';
   String get statusPAG => _statusPAG;
-  set statusPAG(String value) {
-    _statusPAG = value;
+  set statusPAG(String _value) {
+    _statusPAG = _value;
   }
 
   PagPIXStruct _pagPix = PagPIXStruct();
   PagPIXStruct get pagPix => _pagPix;
-  set pagPix(PagPIXStruct value) {
-    _pagPix = value;
+  set pagPix(PagPIXStruct _value) {
+    _pagPix = _value;
   }
 
   void updatePagPixStruct(Function(PagPIXStruct) updateFn) {

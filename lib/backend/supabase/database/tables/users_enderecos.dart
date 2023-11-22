@@ -10,7 +10,7 @@ class UsersEnderecosTable extends SupabaseTable<UsersEnderecosRow> {
 }
 
 class UsersEnderecosRow extends SupabaseDataRow {
-  UsersEnderecosRow(super.data);
+  UsersEnderecosRow(Map<String, dynamic> data) : super(data);
 
   @override
   SupabaseTable get table => UsersEnderecosTable();

@@ -4,13 +4,15 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'editar_perfil_model.dart';
 export 'editar_perfil_model.dart';
 
 class EditarPerfilWidget extends StatefulWidget {
-  const EditarPerfilWidget({super.key});
+  const EditarPerfilWidget({Key? key}) : super(key: key);
 
   @override
   _EditarPerfilWidgetState createState() => _EditarPerfilWidgetState();
@@ -48,7 +50,7 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: const AlignmentDirectional(0.00, 0.00),
+      alignment: AlignmentDirectional(0.00, 0.00),
       child: FutureBuilder<List<UsersRow>>(
         future: UsersTable().querySingleRow(
           queryFn: (q) => q.eq(
@@ -59,7 +61,7 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
         builder: (context, snapshot) {
           // Customize what your widget looks like when it's loading.
           if (!snapshot.hasData) {
-            return const Center(
+            return Center(
               child: SizedBox(
                 width: 15.0,
                 height: 15.0,
@@ -86,7 +88,7 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                   ),
                   child: Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                        EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -104,7 +106,7 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                   ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 10.0, 0.0),
                               child: InkWell(
                                 splashColor: Colors.transparent,
@@ -114,7 +116,7 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                 onTap: () async {
                                   Navigator.pop(context);
                                 },
-                                child: const Icon(
+                                child: Icon(
                                   Icons.close,
                                   color: Color(0xFFE13C27),
                                   size: 30.0,
@@ -124,14 +126,14 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                           ],
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 10.0, 0.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Expanded(
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       8.0, 0.0, 8.0, 0.0),
                                   child: TextFormField(
                                     controller: _model.textController1 ??=
@@ -198,14 +200,14 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 10.0, 0.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Expanded(
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       8.0, 0.0, 8.0, 0.0),
                                   child: TextFormField(
                                     controller: _model.textController2,
@@ -270,7 +272,7 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 10.0, 0.0, 10.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -292,11 +294,11 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                 text: 'Alterar',
                                 options: FFButtonOptions(
                                   height: 40.0,
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       24.0, 0.0, 24.0, 0.0),
-                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
-                                  color: const Color(0xFFE46D1F),
+                                  color: Color(0xFFE46D1F),
                                   textStyle: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
@@ -304,7 +306,7 @@ class _EditarPerfilWidgetState extends State<EditarPerfilWidget> {
                                         color: Colors.white,
                                       ),
                                   elevation: 3.0,
-                                  borderSide: const BorderSide(
+                                  borderSide: BorderSide(
                                     color: Colors.transparent,
                                     width: 1.0,
                                   ),

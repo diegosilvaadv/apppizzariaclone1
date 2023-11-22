@@ -2,12 +2,15 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'definir_pagamento_model.dart';
 export 'definir_pagamento_model.dart';
 
 class DefinirPagamentoWidget extends StatefulWidget {
-  const DefinirPagamentoWidget({super.key});
+  const DefinirPagamentoWidget({Key? key}) : super(key: key);
 
   @override
   _DefinirPagamentoWidgetState createState() => _DefinirPagamentoWidgetState();
@@ -40,15 +43,15 @@ class _DefinirPagamentoWidgetState extends State<DefinirPagamentoWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: const AlignmentDirectional(0.00, 0.00),
+      alignment: AlignmentDirectional(0.00, 0.00),
       child: Column(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Align(
-            alignment: const AlignmentDirectional(0.00, 0.00),
+            alignment: AlignmentDirectional(0.00, 0.00),
             child: Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+              padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
               child: Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
@@ -56,10 +59,10 @@ class _DefinirPagamentoWidgetState extends State<DefinirPagamentoWidget> {
                   borderRadius: BorderRadius.circular(12.0),
                 ),
                 child: Align(
-                  alignment: const AlignmentDirectional(0.00, 0.00),
+                  alignment: AlignmentDirectional(0.00, 0.00),
                   child: Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
+                        EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -83,7 +86,7 @@ class _DefinirPagamentoWidgetState extends State<DefinirPagamentoWidget> {
                           ],
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 20.0, 0.0, 0.0),
                           child: InkWell(
                             splashColor: Colors.transparent,
@@ -102,7 +105,7 @@ class _DefinirPagamentoWidgetState extends State<DefinirPagamentoWidget> {
                                 borderRadius: BorderRadius.circular(6.0),
                               ),
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 8.0, 0.0, 8.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -114,7 +117,7 @@ class _DefinirPagamentoWidgetState extends State<DefinirPagamentoWidget> {
                                       children: [
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   10.0, 0.0, 10.0, 0.0),
                                           child: Icon(
                                             Icons.pix,
@@ -135,13 +138,13 @@ class _DefinirPagamentoWidgetState extends State<DefinirPagamentoWidget> {
                                       ],
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 10.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           if (FFAppState().statusPAG == 'pix')
-                                            const Icon(
+                                            Icon(
                                               Icons.check_box,
                                               color: Color(0xFF10DA26),
                                               size: 24.0,
@@ -165,7 +168,7 @@ class _DefinirPagamentoWidgetState extends State<DefinirPagamentoWidget> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 20.0, 0.0, 0.0),
                           child: InkWell(
                             splashColor: Colors.transparent,
@@ -184,7 +187,7 @@ class _DefinirPagamentoWidgetState extends State<DefinirPagamentoWidget> {
                                 borderRadius: BorderRadius.circular(6.0),
                               ),
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 8.0, 0.0, 8.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -197,7 +200,7 @@ class _DefinirPagamentoWidgetState extends State<DefinirPagamentoWidget> {
                                         children: [
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     10.0, 0.0, 10.0, 0.0),
                                             child: Icon(
                                               Icons.credit_card,
@@ -220,14 +223,14 @@ class _DefinirPagamentoWidgetState extends State<DefinirPagamentoWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 10.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           if (FFAppState().statusPAG ==
                                               'cartao')
-                                            const Icon(
+                                            Icon(
                                               Icons.check_box,
                                               color: Color(0xFF10DA26),
                                               size: 24.0,
@@ -252,7 +255,7 @@ class _DefinirPagamentoWidgetState extends State<DefinirPagamentoWidget> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               20.0, 30.0, 20.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -265,9 +268,9 @@ class _DefinirPagamentoWidgetState extends State<DefinirPagamentoWidget> {
                                 text: 'Escolher',
                                 options: FFButtonOptions(
                                   height: 40.0,
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       24.0, 0.0, 24.0, 0.0),
-                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
                                   color: FlutterFlowTheme.of(context).tertiary,
                                   textStyle: FlutterFlowTheme.of(context)
@@ -277,7 +280,7 @@ class _DefinirPagamentoWidgetState extends State<DefinirPagamentoWidget> {
                                         color: Colors.white,
                                       ),
                                   elevation: 3.0,
-                                  borderSide: const BorderSide(
+                                  borderSide: BorderSide(
                                     color: Colors.transparent,
                                     width: 1.0,
                                   ),

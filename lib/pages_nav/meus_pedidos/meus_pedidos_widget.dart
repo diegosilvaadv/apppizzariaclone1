@@ -7,15 +7,17 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'meus_pedidos_model.dart';
 export 'meus_pedidos_model.dart';
 
 class MeusPedidosWidget extends StatefulWidget {
-  const MeusPedidosWidget({super.key});
+  const MeusPedidosWidget({Key? key}) : super(key: key);
 
   @override
   _MeusPedidosWidgetState createState() => _MeusPedidosWidgetState();
@@ -42,8 +44,8 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
-          begin: const Offset(0.0, -53.0),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(0.0, -53.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -61,8 +63,8 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 360.ms,
-          begin: const Offset(-59.0, 0.0),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(-59.0, 0.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -80,8 +82,8 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 780.ms,
-          begin: const Offset(-50.0, 0.0),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(-50.0, 0.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -136,7 +138,7 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
           mainAxisSize: MainAxisSize.max,
           children: [
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(10.0, 30.0, 10.0, 10.0),
+              padding: EdgeInsetsDirectional.fromSTEB(10.0, 30.0, 10.0, 10.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -154,7 +156,7 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
               ).animateOnPageLoad(animationsMap['rowOnPageLoadAnimation1']!),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(10.0, 20.0, 10.0, 10.0),
+              padding: EdgeInsetsDirectional.fromSTEB(10.0, 20.0, 10.0, 10.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -184,7 +186,7 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                 builder: (context, snapshot) {
                   // Customize what your widget looks like when it's loading.
                   if (!snapshot.hasData) {
-                    return const Center(
+                    return Center(
                       child: SizedBox(
                         width: 15.0,
                         height: 15.0,
@@ -207,7 +209,7 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                           listViewStatusDosPedidosRowList[listViewIndex];
                       return Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(6.0, 6.0, 6.0, 6.0),
+                            EdgeInsetsDirectional.fromSTEB(6.0, 6.0, 6.0, 6.0),
                         child: Container(
                           width: double.infinity,
                           decoration: BoxDecoration(
@@ -216,7 +218,7 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                             borderRadius: BorderRadius.circular(12.0),
                           ),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 10.0, 10.0, 10.0, 10.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
@@ -233,17 +235,17 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                       text: listViewStatusDosPedidosRow.status!,
                                       options: FFButtonOptions(
                                         height: 40.0,
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             24.0, 0.0, 24.0, 0.0),
                                         iconPadding:
-                                            const EdgeInsetsDirectional.fromSTEB(
+                                            EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
                                         color: valueOrDefault<Color>(
                                           () {
                                             if (listViewStatusDosPedidosRow
                                                     .status ==
                                                 'Preparando') {
-                                              return const Color(0xFFE46D1F);
+                                              return Color(0xFFE46D1F);
                                             } else if (listViewStatusDosPedidosRow
                                                     .status ==
                                                 'Entregando') {
@@ -251,10 +253,10 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                                       context)
                                                   .secondary;
                                             } else {
-                                              return const Color(0xFFE46D1F);
+                                              return Color(0xFFE46D1F);
                                             }
                                           }(),
-                                          const Color(0xFFE46D1F),
+                                          Color(0xFFE46D1F),
                                         ),
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleSmall
@@ -265,7 +267,7 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                                       .primaryText,
                                             ),
                                         elevation: 3.0,
-                                        borderSide: const BorderSide(
+                                        borderSide: BorderSide(
                                           color: Colors.transparent,
                                           width: 1.0,
                                         ),
@@ -275,7 +277,7 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                     ),
                                     Flexible(
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             10.0, 0.0, 2.0, 0.0),
                                         child: Text(
                                           dateTimeFormat(
@@ -312,7 +314,7 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                   ],
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 10.0, 0.0),
                                   child: FutureBuilder<List<PedidosRow>>(
                                     future: PedidosTable().queryRows(
@@ -329,7 +331,7 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                     builder: (context, snapshot) {
                                       // Customize what your widget looks like when it's loading.
                                       if (!snapshot.hasData) {
-                                        return const Center(
+                                        return Center(
                                           child: SizedBox(
                                             width: 15.0,
                                             height: 15.0,
@@ -353,7 +355,7 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 20.0, 0.0, 0.0),
                                                 child: Row(
@@ -366,7 +368,7 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                                     Flexible(
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     10.0,
                                                                     0.0,
@@ -411,7 +413,7 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                                 ),
                                               ),
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         10.0, 6.0, 0.0, 0.0),
                                                 child: Row(
@@ -446,7 +448,7 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                                             .override(
                                                               fontFamily:
                                                                   'Readex Pro',
-                                                              color: const Color(
+                                                              color: Color(
                                                                   0xFF10DA26),
                                                               fontSize: 16.0,
                                                             ),
@@ -488,7 +490,7 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                   color: FlutterFlowTheme.of(context).accent4,
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 10.0, 0.0, 6.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -515,7 +517,7 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 6.0, 6.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -540,7 +542,7 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 6.0, 6.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -559,7 +561,7 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Readex Pro',
-                                              color: const Color(0xFF10DA26),
+                                              color: Color(0xFF10DA26),
                                               fontSize: 20.0,
                                               fontWeight: FontWeight.bold,
                                             ),
@@ -579,7 +581,7 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+              padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
               child: Material(
                 color: Colors.transparent,
                 elevation: 20.0,
@@ -593,7 +595,7 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                     color: FlutterFlowTheme.of(context).secondaryBackground,
                     borderRadius: BorderRadius.circular(12.0),
                     border: Border.all(
-                      color: const Color(0xFFE46D1F),
+                      color: Color(0xFFE46D1F),
                       width: 1.0,
                     ),
                   ),
@@ -610,7 +612,7 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                           context.goNamed(
                             'HomePage',
                             extra: <String, dynamic>{
-                              kTransitionInfoKey: const TransitionInfo(
+                              kTransitionInfoKey: TransitionInfo(
                                 hasTransition: true,
                                 transitionType: PageTransitionType.fade,
                                 duration: Duration(milliseconds: 0),
@@ -633,7 +635,7 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                           context.pushNamed(
                             'pesquisa',
                             extra: <String, dynamic>{
-                              kTransitionInfoKey: const TransitionInfo(
+                              kTransitionInfoKey: TransitionInfo(
                                 hasTransition: true,
                                 transitionType: PageTransitionType.fade,
                                 duration: Duration(milliseconds: 0),
@@ -648,12 +650,12 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                         ),
                       ),
                       Align(
-                        alignment: const AlignmentDirectional(0.00, 0.00),
+                        alignment: AlignmentDirectional(0.00, 0.00),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Align(
-                              alignment: const AlignmentDirectional(0.00, 0.00),
+                              alignment: AlignmentDirectional(0.00, 0.00),
                               child: InkWell(
                                 splashColor: Colors.transparent,
                                 focusColor: Colors.transparent,
@@ -663,7 +665,7 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                   context.pushNamed(
                                     'meucarrinho',
                                     extra: <String, dynamic>{
-                                      kTransitionInfoKey: const TransitionInfo(
+                                      kTransitionInfoKey: TransitionInfo(
                                         hasTransition: true,
                                         transitionType: PageTransitionType.fade,
                                         duration: Duration(milliseconds: 0),
@@ -675,7 +677,7 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                   children: [
                                     Align(
                                       alignment:
-                                          const AlignmentDirectional(0.00, 0.00),
+                                          AlignmentDirectional(0.00, 0.00),
                                       child: Icon(
                                         Icons.local_grocery_store,
                                         color: FlutterFlowTheme.of(context)
@@ -685,9 +687,9 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                     ),
                                     Align(
                                       alignment:
-                                          const AlignmentDirectional(1.00, -1.00),
+                                          AlignmentDirectional(1.00, -1.00),
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             30.0, 0.0, 0.0, 0.0),
                                         child: badges.Badge(
                                           badgeContent: Text(
@@ -706,10 +708,10 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                           ),
                                           showBadge: true,
                                           shape: badges.BadgeShape.circle,
-                                          badgeColor: const Color(0xFF10DA26),
+                                          badgeColor: Color(0xFF10DA26),
                                           elevation: 4.0,
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   8.0, 8.0, 8.0, 8.0),
                                           position:
                                               badges.BadgePosition.topEnd(),
@@ -731,7 +733,7 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                           ],
                         ),
                       ),
-                      const Icon(
+                      Icon(
                         Icons.history,
                         color: Color(0xFFE46D1F),
                         size: 35.0,
@@ -746,7 +748,7 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                           context.pushNamed(
                             'Perfil',
                             extra: <String, dynamic>{
-                              kTransitionInfoKey: const TransitionInfo(
+                              kTransitionInfoKey: TransitionInfo(
                                 hasTransition: true,
                                 transitionType: PageTransitionType.fade,
                                 duration: Duration(milliseconds: 0),

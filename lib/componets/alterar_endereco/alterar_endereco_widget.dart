@@ -8,13 +8,15 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:async';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'alterar_endereco_model.dart';
 export 'alterar_endereco_model.dart';
 
 class AlterarEnderecoWidget extends StatefulWidget {
-  const AlterarEnderecoWidget({super.key});
+  const AlterarEnderecoWidget({Key? key}) : super(key: key);
 
   @override
   _AlterarEnderecoWidgetState createState() => _AlterarEnderecoWidgetState();
@@ -75,7 +77,7 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: const AlignmentDirectional(0.00, 0.00),
+      alignment: AlignmentDirectional(0.00, 0.00),
       child: FutureBuilder<List<UsersEnderecosRow>>(
         future: UsersEnderecosTable().querySingleRow(
           queryFn: (q) => q.eq(
@@ -86,7 +88,7 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
         builder: (context, snapshot) {
           // Customize what your widget looks like when it's loading.
           if (!snapshot.hasData) {
-            return const Center(
+            return Center(
               child: SizedBox(
                 width: 15.0,
                 height: 15.0,
@@ -109,7 +111,7 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
                 if (columnUsersEnderecosRow?.userId == currentUserUid)
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 20.0),
+                        EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 20.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -121,11 +123,11 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
                               borderRadius: BorderRadius.circular(8.0),
                             ),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   10.0, 10.0, 10.0, 10.0),
                               child: Container(
                                 width: double.infinity,
-                                color: const Color(0x00FFFFFF),
+                                color: Color(0x00FFFFFF),
                                 child: ExpandableNotifier(
                                   controller: _model.expandableController,
                                   child: ExpandablePanel(
@@ -149,7 +151,7 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
                                             .secondaryBackground,
                                       ),
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 8.0, 0.0, 0.0),
                                         child: Text(
                                           'Selecione o Endereço já cadastrado',
@@ -165,7 +167,7 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
                                       ),
                                     ),
                                     expanded: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           20.0, 0.0, 20.0, 10.0),
                                       child: Container(
                                         decoration: BoxDecoration(
@@ -176,13 +178,13 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
                                         ),
                                         child: Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 10.0, 0.0, 0.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         5.0, 5.0, 5.0, 5.0),
                                                 child: FutureBuilder<
@@ -205,7 +207,7 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
                                                   builder: (context, snapshot) {
                                                     // Customize what your widget looks like when it's loading.
                                                     if (!snapshot.hasData) {
-                                                      return const Center(
+                                                      return Center(
                                                         child: SizedBox(
                                                           width: 15.0,
                                                           height: 15.0,
@@ -236,7 +238,7 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
                                                                 listViewIndex];
                                                         return Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
@@ -255,7 +257,7 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
                                                             ),
                                                             child: Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           10.0,
                                                                           10.0,
@@ -291,7 +293,7 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
                                                                             MainAxisSize.max,
                                                                         children: [
                                                                           Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
                                                                                 0.0,
                                                                                 0.0,
@@ -331,7 +333,7 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
                                                                                 context.pushNamed(
                                                                                   'Perfil',
                                                                                   extra: <String, dynamic>{
-                                                                                    kTransitionInfoKey: const TransitionInfo(
+                                                                                    kTransitionInfoKey: TransitionInfo(
                                                                                       hasTransition: true,
                                                                                       transitionType: PageTransitionType.fade,
                                                                                       duration: Duration(milliseconds: 0),
@@ -342,8 +344,8 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
                                                                               text: 'Selecionar',
                                                                               options: FFButtonOptions(
                                                                                 height: 30.0,
-                                                                                padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
-                                                                                iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+                                                                                iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                 color: FlutterFlowTheme.of(context).tertiary,
                                                                                 textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                       fontFamily: 'Readex Pro',
@@ -351,7 +353,7 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
                                                                                       fontSize: 12.0,
                                                                                     ),
                                                                                 elevation: 3.0,
-                                                                                borderSide: const BorderSide(
+                                                                                borderSide: BorderSide(
                                                                                   color: Colors.transparent,
                                                                                   width: 1.0,
                                                                                 ),
@@ -381,16 +383,16 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
                                                                             options:
                                                                                 FFButtonOptions(
                                                                               height: 30.0,
-                                                                              padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
-                                                                              iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                              color: const Color(0xFFE13C27),
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+                                                                              iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                              color: Color(0xFFE13C27),
                                                                               textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                     fontFamily: 'Readex Pro',
                                                                                     color: Colors.white,
                                                                                     fontSize: 12.0,
                                                                                   ),
                                                                               elevation: 3.0,
-                                                                              borderSide: const BorderSide(
+                                                                              borderSide: BorderSide(
                                                                                 color: Colors.transparent,
                                                                                 width: 1.0,
                                                                               ),
@@ -443,7 +445,7 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
                   ),
                   child: Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                        EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -461,7 +463,7 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
                                   ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 10.0, 0.0),
                               child: InkWell(
                                 splashColor: Colors.transparent,
@@ -472,7 +474,7 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
                                   context.pushNamed(
                                     'Perfil',
                                     extra: <String, dynamic>{
-                                      kTransitionInfoKey: const TransitionInfo(
+                                      kTransitionInfoKey: TransitionInfo(
                                         hasTransition: true,
                                         transitionType: PageTransitionType.fade,
                                         duration: Duration(milliseconds: 0),
@@ -480,7 +482,7 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
                                     },
                                   );
                                 },
-                                child: const Icon(
+                                child: Icon(
                                   Icons.close,
                                   color: Color(0xFFE13C27),
                                   size: 30.0,
@@ -490,14 +492,14 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
                           ],
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 10.0, 0.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Expanded(
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       8.0, 0.0, 8.0, 0.0),
                                   child: TextFormField(
                                     controller: _model.cepController,
@@ -593,7 +595,7 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
                                         return Padding(
                                           padding:
                                               MediaQuery.viewInsetsOf(context),
-                                          child: const AlterarEnderecoWidget(),
+                                          child: AlterarEnderecoWidget(),
                                         );
                                       },
                                     ).then((value) => safeSetState(() {}));
@@ -604,9 +606,9 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
                                 text: 'Buscar CEP',
                                 options: FFButtonOptions(
                                   height: 40.0,
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       24.0, 0.0, 24.0, 0.0),
-                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
                                   color: FlutterFlowTheme.of(context).tertiary,
                                   textStyle: FlutterFlowTheme.of(context)
@@ -616,7 +618,7 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
                                         color: Colors.white,
                                       ),
                                   elevation: 3.0,
-                                  borderSide: const BorderSide(
+                                  borderSide: BorderSide(
                                     color: Colors.transparent,
                                     width: 1.0,
                                   ),
@@ -627,14 +629,14 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 10.0, 0.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Expanded(
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       8.0, 0.0, 8.0, 0.0),
                                   child: TextFormField(
                                     controller: _model.enderecoController,
@@ -704,7 +706,7 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
                                   key: _model.formKey1,
                                   autovalidateMode: AutovalidateMode.disabled,
                                   child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         8.0, 0.0, 8.0, 0.0),
                                     child: TextFormField(
                                       controller: _model.numeroController,
@@ -769,14 +771,14 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 10.0, 0.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Expanded(
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       8.0, 0.0, 8.0, 0.0),
                                   child: TextFormField(
                                     controller: _model.complementoController,
@@ -840,14 +842,14 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 10.0, 0.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Expanded(
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       8.0, 0.0, 8.0, 0.0),
                                   child: TextFormField(
                                     controller: _model.bairroController,
@@ -911,14 +913,14 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 10.0, 0.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Expanded(
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       8.0, 0.0, 8.0, 0.0),
                                   child: TextFormField(
                                     controller: _model.cidadeController,
@@ -982,7 +984,7 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 10.0, 0.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -992,7 +994,7 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
                                   key: _model.formKey2,
                                   autovalidateMode: AutovalidateMode.disabled,
                                   child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         8.0, 0.0, 8.0, 0.0),
                                     child: TextFormField(
                                       controller: _model.estadoController,
@@ -1058,7 +1060,7 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 10.0, 0.0, 10.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -1104,7 +1106,7 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
                                   context.goNamed(
                                     'Perfil',
                                     extra: <String, dynamic>{
-                                      kTransitionInfoKey: const TransitionInfo(
+                                      kTransitionInfoKey: TransitionInfo(
                                         hasTransition: true,
                                         transitionType: PageTransitionType.fade,
                                         duration: Duration(milliseconds: 0),
@@ -1115,11 +1117,11 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
                                 text: 'Adicionar Endereço',
                                 options: FFButtonOptions(
                                   height: 40.0,
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       24.0, 0.0, 24.0, 0.0),
-                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
-                                  color: const Color(0xFFE46D1F),
+                                  color: Color(0xFFE46D1F),
                                   textStyle: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
@@ -1127,7 +1129,7 @@ class _AlterarEnderecoWidgetState extends State<AlterarEnderecoWidget> {
                                         color: Colors.white,
                                       ),
                                   elevation: 3.0,
-                                  borderSide: const BorderSide(
+                                  borderSide: BorderSide(
                                     color: Colors.transparent,
                                     width: 1.0,
                                   ),
