@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'home_page_widget.dart' show HomePageWidget;
 import 'package:badges/badges.dart' as badges;
@@ -38,6 +39,24 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   // State field(s) for Expandable widget.
   late ExpandableController expandableController6;
 
+  // State field(s) for Expandable widget.
+  late ExpandableController expandableController7;
+
+  // State field(s) for Expandable widget.
+  late ExpandableController expandableController8;
+
+  // State field(s) for Expandable widget.
+  late ExpandableController expandableController9;
+
+  // State field(s) for Expandable widget.
+  late ExpandableController expandableController10;
+
+  // State field(s) for Expandable widget.
+  late ExpandableController expandableController11;
+
+  // State field(s) for Expandable widget.
+  late ExpandableController expandableController12;
+
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {}
@@ -50,6 +69,12 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
     expandableController4.dispose();
     expandableController5.dispose();
     expandableController6.dispose();
+    expandableController7.dispose();
+    expandableController8.dispose();
+    expandableController9.dispose();
+    expandableController10.dispose();
+    expandableController11.dispose();
+    expandableController12.dispose();
   }
 
   /// Action blocks are added here.

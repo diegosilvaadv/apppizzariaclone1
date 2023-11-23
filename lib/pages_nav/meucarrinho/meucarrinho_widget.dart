@@ -145,26 +145,6 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
         ),
       ],
     ),
-    'rowOnPageLoadAnimation4': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        ShakeEffect(
-          curve: Curves.easeInOut,
-          delay: 150.ms,
-          duration: 1000.ms,
-          hz: 10,
-          offset: Offset(0.0, 0.0),
-          rotation: 0.087,
-        ),
-      ],
-    ),
     'stackOnPageLoadAnimation': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
@@ -251,7 +231,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
             'Meu Carrinho',
             style: FlutterFlowTheme.of(context).bodyMedium.override(
                   fontFamily: 'Roboto',
-                  fontSize: 35.0,
+                  fontSize: 30.0,
                   fontWeight: FontWeight.w500,
                 ),
           ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation']!),
@@ -938,27 +918,6 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                             children: [
                               ClipRRect(
                                 borderRadius: BorderRadius.circular(8.0),
-                                child: Image.network(
-                                  '',
-                                  width: 300.0,
-                                  height: 300.0,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                            ],
-                          ).animateOnPageLoad(
-                              animationsMap['rowOnPageLoadAnimation3']!),
-                        ),
-                      if (FFAppState().NumCarrinho == 0)
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 30.0, 0.0, 0.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
                                 child: Image.asset(
                                   'assets/images/empty-cart-7359557-6024626.png',
                                   width: 300.0,
@@ -968,7 +927,7 @@ class _MeucarrinhoWidgetState extends State<MeucarrinhoWidget>
                               ),
                             ],
                           ).animateOnPageLoad(
-                              animationsMap['rowOnPageLoadAnimation4']!),
+                              animationsMap['rowOnPageLoadAnimation3']!),
                         ),
                     ],
                   ),
