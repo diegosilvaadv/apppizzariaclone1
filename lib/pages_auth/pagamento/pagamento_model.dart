@@ -3,6 +3,7 @@ import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
 import '/componets/pedidos_finalizados/pedidos_finalizados_widget.dart';
+import '/flutter_flow/flutter_flow_credit_card_form.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -24,6 +25,9 @@ class PagamentoModel extends FlutterFlowModel<PagamentoWidget> {
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
+  // State field(s) for CreditCardForm widget.
+  final creditCardFormKey = GlobalKey<FormState>();
+  CreditCardModel creditCardInfo = emptyCreditCard();
   Completer<ApiCallResponse>? apiRequestCompleter;
 
   /// Initialization and disposal methods.
