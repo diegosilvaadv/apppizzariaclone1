@@ -737,7 +737,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                     style: FlutterFlowTheme.of(context).headlineMedium.override(
                           fontFamily: 'Outfit',
                           color: FlutterFlowTheme.of(context).primaryText,
-                          fontSize: 40.0,
+                          fontSize: 20.0,
                         ),
                   ).animateOnPageLoad(
                       animationsMap['textOnPageLoadAnimation1']!),

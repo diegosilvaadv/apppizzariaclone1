@@ -181,7 +181,7 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                     'Pedidos Pententes',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Readex Pro',
-                          fontSize: 19.0,
+                          fontSize: 20.0,
                         ),
                   ),
                 ],
@@ -260,49 +260,32 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                         iconPadding:
                                             EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
-                                        color: valueOrDefault<Color>(
-                                          () {
-                                            if (listViewStatusDosPedidosRow
-                                                    .status ==
-                                                'Preparando') {
-                                              return Color(0xFFE46D1F);
-                                            } else if (listViewStatusDosPedidosRow
-                                                    .status ==
-                                                'Entregando') {
-                                              return FlutterFlowTheme.of(
-                                                      context)
-                                                  .secondary;
-                                            } else {
-                                              return Color(0xFFE46D1F);
-                                            }
-                                          }(),
-                                          Color(0xFFE46D1F),
-                                        ),
+                                        color: () {
+                                          if (listViewStatusDosPedidosRow
+                                                  .status ==
+                                              'Preparando') {
+                                            return FlutterFlowTheme.of(context)
+                                                .tertiary;
+                                          } else if (listViewStatusDosPedidosRow
+                                                  .status ==
+                                              'Entregando') {
+                                            return FlutterFlowTheme.of(context)
+                                                .secondary;
+                                          } else if (listViewStatusDosPedidosRow
+                                                  .status ==
+                                              'Entregue') {
+                                            return Color(0xFF10DA26);
+                                          } else {
+                                            return Color(0x00000000);
+                                          }
+                                        }(),
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
                                               fontFamily: 'Readex Pro',
-                                              color: () {
-                                                if (listViewStatusDosPedidosRow
-                                                        .status ==
-                                                    'Preparando') {
-                                                  return FlutterFlowTheme.of(
-                                                          context)
-                                                      .tertiary;
-                                                } else if (listViewStatusDosPedidosRow
-                                                        .status ==
-                                                    'Entregando') {
-                                                  return FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondary;
-                                                } else if (listViewStatusDosPedidosRow
-                                                        .status ==
-                                                    'Entregue') {
-                                                  return Color(0xFF10DA26);
-                                                } else {
-                                                  return Color(0x00000000);
-                                                }
-                                              }(),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
                                             ),
                                         elevation: 3.0,
                                         borderSide: BorderSide(
