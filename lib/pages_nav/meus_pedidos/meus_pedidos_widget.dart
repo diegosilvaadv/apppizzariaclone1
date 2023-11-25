@@ -111,11 +111,11 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       await actions.desconectar(
-        'status dos pedidos',
+        'pedidos',
       );
       await Future.delayed(const Duration(milliseconds: 1000));
       await actions.conectar(
-        'status dos pedidos',
+        'pedidos',
         () async {
           setState(() => _model.requestCompleter = null);
           await _model.waitForRequestCompleted();
