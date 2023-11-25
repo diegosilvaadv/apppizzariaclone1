@@ -5,6 +5,8 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/actions/index.dart' as actions;
+import 'dart:async';
 import 'meus_pedidos_widget.dart' show MeusPedidosWidget;
 import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
@@ -19,6 +21,7 @@ class MeusPedidosModel extends FlutterFlowModel<MeusPedidosWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  Completer<List<StatusDosPedidosRow>>? requestCompleter;
 
   /// Initialization and disposal methods.
 
@@ -31,4 +34,19 @@ class MeusPedidosModel extends FlutterFlowModel<MeusPedidosWidget> {
   /// Action blocks are added here.
 
   /// Additional helper methods are added here.
+
+  Future waitForRequestCompleted({
+    double minWait = 0,
+    double maxWait = double.infinity,
+  }) async {
+    final stopwatch = Stopwatch()..start();
+    while (true) {
+      await Future.delayed(Duration(milliseconds: 50));
+      final timeElapsed = stopwatch.elapsedMilliseconds;
+      final requestComplete = requestCompleter?.isCompleted ?? false;
+      if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
+        break;
+      }
+    }
+  }
 }

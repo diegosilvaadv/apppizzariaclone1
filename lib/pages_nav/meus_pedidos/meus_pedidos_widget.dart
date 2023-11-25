@@ -5,6 +5,8 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/actions/index.dart' as actions;
+import 'dart:async';
 import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -105,6 +107,21 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
   void initState() {
     super.initState();
     _model = createModel(context, () => MeusPedidosModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await actions.desconectar(
+        'status dos pedidos',
+      );
+      await Future.delayed(const Duration(milliseconds: 1000));
+      await actions.conectar(
+        'status dos pedidos',
+        () async {
+          setState(() => _model.requestCompleter = null);
+          await _model.waitForRequestCompleted();
+        },
+      );
+    });
   }
 
   @override
@@ -172,17 +189,20 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
             ),
             Expanded(
               child: FutureBuilder<List<StatusDosPedidosRow>>(
-                future: StatusDosPedidosTable().queryRows(
-                  queryFn: (q) => q
-                      .eq(
-                    'user_id',
-                    currentUserUid,
-                  )
-                      .in_(
-                    'status',
-                    ['Preparando', 'Entregando'],
-                  ).order('created_at'),
-                ),
+                future: (_model.requestCompleter ??=
+                        Completer<List<StatusDosPedidosRow>>()
+                          ..complete(StatusDosPedidosTable().queryRows(
+                            queryFn: (q) => q
+                                .eq(
+                              'user_id',
+                              currentUserUid,
+                            )
+                                .in_(
+                              'status',
+                              ['Preparando', 'Entregando'],
+                            ).order('created_at'),
+                          )))
+                    .future,
                 builder: (context, snapshot) {
                   // Customize what your widget looks like when it's loading.
                   if (!snapshot.hasData) {
@@ -262,9 +282,27 @@ class _MeusPedidosWidgetState extends State<MeusPedidosWidget>
                                             .titleSmall
                                             .override(
                                               fontFamily: 'Readex Pro',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
+                                              color: () {
+                                                if (listViewStatusDosPedidosRow
+                                                        .status ==
+                                                    'Preparando') {
+                                                  return FlutterFlowTheme.of(
+                                                          context)
+                                                      .tertiary;
+                                                } else if (listViewStatusDosPedidosRow
+                                                        .status ==
+                                                    'Entregando') {
+                                                  return FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondary;
+                                                } else if (listViewStatusDosPedidosRow
+                                                        .status ==
+                                                    'Entregue') {
+                                                  return Color(0xFF10DA26);
+                                                } else {
+                                                  return Color(0x00000000);
+                                                }
+                                              }(),
                                             ),
                                         elevation: 3.0,
                                         borderSide: BorderSide(
